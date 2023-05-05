@@ -1,0 +1,436 @@
+﻿<UserControl x:Class="UI_PBL3_WPF.SenderInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI_PBL3_WPF"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="800">
+    <Border CornerRadius="20"
+            Background="{StaticResource color13}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1">
+                    <Border  CornerRadius="15">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFFDFDFD" Offset="0.5"/>
+                                <GradientStop Color="#FF21C1BD" Offset="0.15"/>
+                                <GradientStop Color="#FF2DD6D2" Offset="0.85"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <TextBox Text="Thông tin người gửi"
+                             FontFamily="Montagu Slab"
+                             FontSize="20"
+                             Height="24"
+                             Background= "Transparent"
+                             FontWeight="Medium"
+                             CaretBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}"
+                             
+                             VerticalAlignment="Center"
+                             Margin="106,0,106,0" TextWrapping="Wrap" SelectionBrush="#FF008DD7" SelectionTextBrush="#FF0F2717">
+                            <TextBox.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FF6B0E75" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TextBox.Foreground>
+                        </TextBox>
+                    </Border>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="120"/>
+                </Grid.ColumnDefinitions>
+
+                <Border CornerRadius="15" Margin="0,0,300,0">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFFDFDFD" Offset="0.5"/>
+                            <GradientStop Color="#FF21C1BD" Offset="0.15"/>
+                            <GradientStop Color="#FF2DD6D2" Offset="0.85"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Grid.Column="0" Margin="0,0,10,0">
+                        <fa:IconImage Icon="UserAlt" Height="20" Width="20" 
+                              Margin="20,10,0,0"
+                              Foreground="{StaticResource plainTextColor3}"/>
+                        <TextBox Text="Nhập tên người gửi..."
+                             FontFamily="Montagu Slab"
+                             FontSize="13"
+                             Height="24"
+                             Width="300"
+                             Background= "Transparent"
+                             FontWeight="Medium"
+                             Foreground="{StaticResource plainTextColor3}"
+                             CaretBrush="{StaticResource plainTextColor3}"
+                             BorderBrush="{StaticResource plainTextColor3}"
+                             BorderThickness="0,0,0,1"
+                             VerticalAlignment="Center"
+                             Margin="20,10,0,0"/>
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+
+            <Grid Grid.Row="4">
+                <Grid Grid.Column="0">
+                    <Border CornerRadius="15"
+                            Margin="0,0,420,0">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFFDFDFD" Offset="0.5"/>
+                                <GradientStop Color="#FF21C1BD" Offset="0.15"/>
+                                <GradientStop Color="#FF2DD6D2" Offset="0.85"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Grid.Column="1">
+                            <fa:IconImage Icon="PhoneAlt" Height="20" Width="20" 
+                              Margin="20,15,0,0"
+                              Foreground="{StaticResource plainTextColor3}"/>
+                            <TextBox Text="Số điện thoại ..."
+                         FontFamily="Montagu Slab"
+                         FontSize="13"
+                         Height="24"
+                         Width="300"
+                         Background= "Transparent"
+                         FontWeight="Medium"
+                         Foreground="{StaticResource plainTextColor3}"
+                         CaretBrush="{StaticResource plainTextColor3}"
+                         BorderBrush="{StaticResource plainTextColor3}"
+                         BorderThickness="0,0,0,1"
+                         VerticalAlignment="Center"
+                         Margin="20,10,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+            </Grid>
+
+            <Grid Grid.Row="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition Width="400"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Border CornerRadius="15"
+                            Margin="0,0,20,0">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFFDFDFD" Offset="0.5"/>
+                                <GradientStop Color="#FF21C1BD" Offset="0.15"/>
+                                <GradientStop Color="#FF2DD6D2" Offset="0.85"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Grid.Column="1">
+                            <fa:IconImage Icon="HomeAlt" Height="20" Width="20" 
+                              Margin="20,15,0,0"
+                              Foreground="{StaticResource plainTextColor3}"/>
+                            <TextBox Text="Địa chỉ nhà ..."
+                         FontFamily="Montagu Slab"
+                         FontSize="13"
+                         Height="24"
+                         Width="300"
+                         Background= "Transparent"
+                         FontWeight="Medium"
+                         Foreground="{StaticResource plainTextColor3}"
+                         CaretBrush="{StaticResource plainTextColor3}"
+                         BorderBrush="{StaticResource plainTextColor3}"
+                         BorderThickness="0,0,0,1"
+                         VerticalAlignment="Center"
+                         Margin="20,10,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Border CornerRadius="15"
+                            Margin="0,0,20,0">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFFDFDFD" Offset="0.5"/>
+                                <GradientStop Color="#FF21C1BD" Offset="0.15"/>
+                                <GradientStop Color="#FF2DD6D2" Offset="0.85"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Grid.Column="1">
+                            <TextBox Text="Thành phố ..."
+                                FontFamily="Montagu Slab"
+                                FontSize="13"
+                                Height="24"
+                                Width="300"
+                                Background= "Transparent"
+                                FontWeight="Medium"
+                                Foreground="{StaticResource plainTextColor3}"
+                                CaretBrush="{StaticResource plainTextColor3}"
+                                BorderBrush="{StaticResource plainTextColor3}"
+                                BorderThickness="0,0,0,1"
+                                VerticalAlignment="Center"
+                                Margin="20,10,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1">
+                    <Border  CornerRadius="15">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFFDFDFD" Offset="0.5"/>
+                                <GradientStop Color="#FF21C1BD" Offset="0.15"/>
+                                <GradientStop Color="#FF2DD6D2" Offset="0.85"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <TextBox Text="Thông tin người nhận"
+                             FontFamily="Montagu Slab"
+                             FontSize="20"
+                             Height="40"
+                             Background= "Transparent"
+                             FontWeight="Medium"
+                             CaretBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}"
+                             
+                             VerticalAlignment="Top"
+                             Margin="92,10,92,0" TextWrapping="Wrap" SelectionBrush="#FF008DD7" SelectionTextBrush="#FF0F2717" TextChanged="TextBox_TextChanged">
+                            <TextBox.Foreground>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FF6B0E75" Offset="1"/>
+                                </LinearGradientBrush>
+                            </TextBox.Foreground>
+                        </TextBox>
+                    </Border>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="120"/>
+                </Grid.ColumnDefinitions>
+
+                <Border CornerRadius="15" Margin="0,0,300,0">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFFDFDFD" Offset="0.5"/>
+                            <GradientStop Color="#FF21C1BD" Offset="0.15"/>
+                            <GradientStop Color="#FF2DD6D2" Offset="0.85"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Grid.Column="0" Margin="0,0,10,0">
+                        <fa:IconImage Icon="UserAlt" Height="20" Width="20" 
+                              Margin="20,10,0,0"
+                              Foreground="{StaticResource plainTextColor3}"/>
+                        <TextBox Text="Nhập tên người nhận..."
+                             FontFamily="Montagu Slab"
+                             FontSize="13"
+                             Height="24"
+                             Width="300"
+                             Background= "Transparent"
+                             FontWeight="Medium"
+                             Foreground="{StaticResource plainTextColor3}"
+                             CaretBrush="{StaticResource plainTextColor3}"
+                             BorderBrush="{StaticResource plainTextColor3}"
+                             BorderThickness="0,0,0,1"
+                             VerticalAlignment="Center"
+                             Margin="20,10,0,0"/>
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+
+            <Grid Grid.Row="12">
+                <Grid Grid.Column="0">
+                    <Border CornerRadius="15"
+                            Margin="0,0,420,0">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFFDFDFD" Offset="0.5"/>
+                                <GradientStop Color="#FF21C1BD" Offset="0.15"/>
+                                <GradientStop Color="#FF2DD6D2" Offset="0.85"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Grid.Column="1">
+                            <fa:IconImage Icon="PhoneAlt" Height="20" Width="20" 
+                              Margin="20,15,0,0"
+                              Foreground="{StaticResource plainTextColor3}"/>
+                            <TextBox Text="Số điện thoại ..."
+                         FontFamily="Montagu Slab"
+                         FontSize="13"
+                         Height="24"
+                         Width="300"
+                         Background= "Transparent"
+                         FontWeight="Medium"
+                         Foreground="{StaticResource plainTextColor3}"
+                         CaretBrush="{StaticResource plainTextColor3}"
+                         BorderBrush="{StaticResource plainTextColor3}"
+                         BorderThickness="0,0,0,1"
+                         VerticalAlignment="Center"
+                         Margin="20,10,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+            </Grid>
+
+            <Grid Grid.Row="14">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition Width="400"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Border CornerRadius="15"
+                            Margin="0,0,20,0">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFFDFDFD" Offset="0.5"/>
+                                <GradientStop Color="#FF21C1BD" Offset="0.15"/>
+                                <GradientStop Color="#FF2DD6D2" Offset="0.85"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Grid.Column="1">
+                            <fa:IconImage Icon="HomeAlt" Height="20" Width="20" 
+                              Margin="20,15,0,0"
+                              Foreground="{StaticResource plainTextColor3}"/>
+                            <TextBox Text="Địa chỉ nhà ..."
+                         FontFamily="Montagu Slab"
+                         FontSize="13"
+                         Height="24"
+                         Width="300"
+                         Background= "Transparent"
+                         FontWeight="Medium"
+                         Foreground="{StaticResource plainTextColor3}"
+                         CaretBrush="{StaticResource plainTextColor3}"
+                         BorderBrush="{StaticResource plainTextColor3}"
+                         BorderThickness="0,0,0,1"
+                         VerticalAlignment="Center"
+                         Margin="20,10,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Border CornerRadius="15"
+                            Margin="0,0,20,0">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFFDFDFD" Offset="0.5"/>
+                                <GradientStop Color="#FF21C1BD" Offset="0.15"/>
+                                <GradientStop Color="#FF2DD6D2" Offset="0.85"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Grid.Column="1">
+                            <TextBox Text="Thành phố ..."
+                                FontFamily="Montagu Slab"
+                                FontSize="13"
+                                Height="24"
+                                Width="300"
+                                Background= "Transparent"
+                                FontWeight="Medium"
+                                Foreground="{StaticResource plainTextColor3}"
+                                CaretBrush="{StaticResource plainTextColor3}"
+                                BorderBrush="{StaticResource plainTextColor3}"
+                                BorderThickness="0,0,0,1"
+                                VerticalAlignment="Center"
+                                Margin="20,10,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Margin="0,29,0,21">
+                    <Border CornerRadius="15"
+                    Background="{StaticResource color12}" Margin="20,-8,10,0"/>
+                </Grid>
+                <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        Grid.Column="0">
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Content="Hủy"
+                             Margin="62,0,0,0" />
+                </StackPanel>
+
+                <Grid Grid.Column="1" Margin="0,21,0,21">
+                    <Border CornerRadius="15"
+                    Background="{StaticResource color12}" Margin="0,0,0,0"/>
+                </Grid>
+                <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        Grid.Column="1">
+                    <RadioButton Style="{StaticResource menuButton}"
+                             Content="Xác nhận"
+                             VerticalContentAlignment="Center"
+                             Margin="50,0,0,0" />
+
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+    </Border>
+</UserControl>

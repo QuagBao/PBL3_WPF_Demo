@@ -28,8 +28,8 @@
         <DataTemplate DataType="{x:Type viewModel:AddParcelModel}">
             <local:AddParcelView/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:AddReceivingCustomerModel}">
-            <local:AddRCView/>
+        <DataTemplate DataType="{x:Type viewModel:AddFunctionModel}">
+            <local:AddFuncView/>
         </DataTemplate>
     </Window.Resources>
     

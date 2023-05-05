@@ -100,7 +100,7 @@ namespace Demo1.ViewModel
                 });
                 ShowAddReceivingCustomerWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
                 {
-                    CurrentChildView = new AddReceivingCustomerModel();
+                    CurrentChildView = new AddFunctionModel();
                     Caption = "Người nhận";
                     Icon = IconChar.UserGroup;
                 });

@@ -116,11 +116,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddFuncView.xaml.cs">
+      <DependentUpon>AddFuncView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddParcelView.xaml.cs">
       <DependentUpon>AddParcelView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AddRCView.xaml.cs">
-      <DependentUpon>AddRCView.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddSCView.xaml.cs">
       <DependentUpon>AddSCView.xaml</DependentUpon>
@@ -183,18 +183,18 @@
     <Compile Include="ViewModel\AddParcelModel.cs" />
     <Compile Include="ViewModel\AddSendingCustomerModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="ViewModel\AddReceivingCustomerModel.cs" />
+    <Compile Include="ViewModel\AddFunctionModel.cs" />
     <Compile Include="ViewModel\HashHelper.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddParcelView.xaml">
+    <Page Include="AddFuncView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddRCView.xaml">
+    <Page Include="AddParcelView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

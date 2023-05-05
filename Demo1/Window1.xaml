@@ -5,33 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Demo1"
         mc:Ignorable="d"
-        Title="Window1" Height="2000" Width="3000">
+        Title="Window1" Height="640" Width="1000">
 
     <Grid>
         <ScrollViewer>
-            <StackPanel>
-                
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-                <Button Margin="0 0 20 20" Height="50"/>
-            </StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300"/>
+                    <RowDefinition Height="300"/>
+                    <RowDefinition Height="300"/>
+                    <RowDefinition Height="300"/>
+                    <RowDefinition Height="200"/>
+
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="0 0 20 20">
+                    <Button>
+                        <TextBlock Text="Hello"></TextBlock>
+                    </Button>
+                </Grid>
+                <Grid Grid.Row="1" Margin="0 0 20 20" >
+                    <Button>
+                        <TextBlock Text="Hello"></TextBlock>
+                    </Button>
+                </Grid>
+                <Grid Grid.Row="2" Margin="0 0 20 20 ">
+                    <Button>
+                        <TextBlock Text="Hello"></TextBlock>
+                    </Button>
+                </Grid>
+                <Grid Grid.Row="3" Margin="0 0 20 20">
+                    <Button>
+                        <TextBlock Text="Hello"></TextBlock>
+                    </Button>
+                </Grid>
+            </Grid>
         </ScrollViewer>
     </Grid>
+       
+      
 </Window>
