@@ -15,8 +15,11 @@ namespace Demo1.Model
     public partial class Receptionist
     {
         public string receptionistID { get; set; }
+        public string warehouseID { get; set; }
         public string receptionistName { get; set; }
         public string receptionistLocation { get; set; }
         public string receptionistPhoneNumber { get; set; }
+    
+        public virtual Warehouse Warehouse { get; set; }
     }
 }

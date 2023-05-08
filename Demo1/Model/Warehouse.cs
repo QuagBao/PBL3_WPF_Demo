@@ -17,10 +17,10 @@ namespace Demo1.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Warehouse()
         {
-            this.Batches = new HashSet<Batch>();
-            this.Batches1 = new HashSet<Batch>();
+            this.Routes = new HashSet<Route>();
             this.WarehouseManagers = new HashSet<WarehouseManager>();
             this.WarehouseStaffs = new HashSet<WarehouseStaff>();
+            this.Receptionists = new HashSet<Receptionist>();
         }
     
         public string warehouseID { get; set; }
@@ -29,12 +29,12 @@ namespace Demo1.Model
         public int capacity { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Batch> Batches { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Batch> Batches1 { get; set; }
+        public virtual ICollection<Route> Routes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WarehouseManager> WarehouseManagers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WarehouseStaff> WarehouseStaffs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Receptionist> Receptionists { get; set; }
     }
 }

@@ -18,7 +18,8 @@ namespace Demo1.ViewModel
 {
     class LoginViewModel : BaseViewModel
     {
-       public bool isLogin { get; set; }
+        public string LoginID;
+        public bool isLogin { get; set; }
         private string _UserName;
         public string UserName {
             get {
@@ -58,9 +59,11 @@ namespace Demo1.ViewModel
         {
             using (var context = new Model.PBL3_demoEntities())
             {
-                var count = context.Accounts.Where(x => x.accountName == UserName && x.accountPassword == Password).Count();
-                if (count > 0)
+                var count = context.Accounts.FirstOrDefault(x => x.accountName == UserName && x.accountPassword == Password);
+                if (count!=null)
                 {
+                    LoginID = count.accountID;
+
                     isLogin = true;
                     p.Close();
                 }

@@ -85,19 +85,7 @@ namespace Demo1.ViewModel
                     }
                 });
                 //default view
-                ShowParcelWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-                {
-                    CurrentChildView = new AddParcelModel();
-                    Caption = "Đơn hàng";
-                    Icon = IconChar.Box;
-                });
-
-                ShowAddSendingCustomerWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-                {
-                    CurrentChildView = new AddSendingCustomerModel();
-                    Caption = "Người gửi";
-                    Icon = IconChar.UserGroup;
-                });
+                
                 ShowAddReceivingCustomerWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
                 {
                     CurrentChildView = new AddFunctionModel();

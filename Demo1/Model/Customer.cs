@@ -19,6 +19,7 @@ namespace Demo1.Model
         {
             this.Invoices = new HashSet<Invoice>();
             this.Parcels = new HashSet<Parcel>();
+            this.Parcels1 = new HashSet<Parcel>();
         }
     
         public string customerID { get; set; }
@@ -30,5 +31,7 @@ namespace Demo1.Model
         public virtual ICollection<Invoice> Invoices { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Parcel> Parcels { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Parcel> Parcels1 { get; set; }
     }
 }
