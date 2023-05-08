@@ -140,8 +140,6 @@ C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\Demo1.cspr
 C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\Styles\ButtonStyles.baml
 C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\Styles\ScrollViewer.baml
 C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\Styles\UIColors.baml
-C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\AddParcelView.g.cs
-C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\AddSCView.g.cs
 C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\LoginWindow.g.cs
 C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\MainWindow.g.cs
 C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\App.g.cs
@@ -182,8 +180,6 @@ C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\bin\Debug\System.Num
 C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\bin\Debug\System.Windows.Interactivity.xml
 C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\App.baml
-C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\AddParcelView.baml
-C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\AddSCView.baml
 C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\LoginWindow.baml
 C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\MainWindow.baml
 C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\ResourceXAML\MainResource.baml
@@ -198,3 +194,8 @@ C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\SearchParc
 C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\SearchParcel.baml
 C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\AddFuncView.g.cs
 C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\AddFuncView.baml
+C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\bin\Debug\Prism.dll
+C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\bin\Debug\Prism.pdb
+C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\bin\Debug\Prism.xml
+C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\Invoice.g.cs
+C:\Users\ASUS\Documents\Zalo Received Files\Demo1 (1)\Demo1\obj\Debug\Invoice.baml

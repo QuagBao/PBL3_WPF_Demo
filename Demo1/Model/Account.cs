@@ -14,10 +14,11 @@ namespace Demo1.Model
     
     public partial class Account
     {
+        public string accountID { get; set; }
         public string accountName { get; set; }
         public string accountPassword { get; set; }
         public int accessRightID { get; set; }
-        public string Salt { get; set; }
+        public string salt { get; set; }
     
         public virtual AccessRight AccessRight { get; set; }
     }

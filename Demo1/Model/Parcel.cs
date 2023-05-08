@@ -18,24 +18,30 @@ namespace Demo1.Model
         public Parcel()
         {
             this.Invoices = new HashSet<Invoice>();
+            this.Routes = new HashSet<Route>();
+            this.ShipFees = new HashSet<ShipFee>();
         }
     
-        public string parcelID { get; set; }
+        public int parcelID { get; set; }
         public string parcelName { get; set; }
-        public Nullable<double> parcelValue { get; set; }
-        public string parcelStatus { get; set; }
         public double parcelMass { get; set; }
         public string parcelSize { get; set; }
-        public string customerID { get; set; }
-        public string type { get; set; }
-        public System.DateTime createTime { get; set; }
-        public int shippingFeeID { get; set; }
-        public string batchID { get; set; }
+        public double parcelValue { get; set; }
+        public Nullable<System.DateTime> createTime { get; set; }
+        public string RCustomerID { get; set; }
+        public string SCustomerID { get; set; }
+        public Nullable<bool> type { get; set; }
+        public bool shippingMethod { get; set; }
+        public Nullable<bool> parcelStatus { get; set; }
+        public Nullable<bool> isCOD { get; set; }
     
-        public virtual Batch Batch { get; set; }
         public virtual Customer Customer { get; set; }
+        public virtual Customer Customer1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Invoice> Invoices { get; set; }
-        public virtual ShippingFee ShippingFee { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Route> Routes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ShipFee> ShipFees { get; set; }
     }
 }
