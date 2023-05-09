@@ -4,9 +4,123 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Demo1"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="640" d:DesignWidth="1000">
-    <Grid>
-            
-    </Grid>
+             d:DesignHeight="642.7" Width="957">
+    <Border CornerRadius="20"
+            Background="#8A8683">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Border CornerRadius="20"
+                        Background="#8ED3F4"
+                        Margin="15"
+                        Width="400">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Icon="MagnifyingGlass"
+                                      Height="40" Width="40"
+                                      Style="{StaticResource menuButtonIcon}"
+                                      Foreground="#5A4D4C"/>
+                        <TextBox   materialDesign:HintAssist.Hint="Nhập mã đơn hàng"
+                                   materialDesign:HintAssist.FloatingScale="0"
+                                   materialDesign:HintAssist.Foreground="Blue"
+                                   FontSize="30" 
+                                   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                   Text="{Binding CustomerName}" 
+                                   Foreground="#5A4D4C" Width="400" Height="70" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Border Margin="30">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Border BorderThickness="0,0,3,0"
+                                        CornerRadius="20,0,0,0"
+                                        Background="#8ED3F4">
+                                    <TextBlock Text="Mã đơn hàng"
+                                           FontSize="25"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                                           Foreground="#5A4D4C"/>
+                                </Border>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Border Background="#8ED3F4"
+                                        BorderThickness= "0,3,3,0"
+                                        CornerRadius="0,0,0,20">
+
+                                </Border>
+                            </Grid>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Border BorderThickness="0,0,3,0"
+                                        CornerRadius="0,0,0,0"
+                                        Background="#8ED3F4">
+                                    <TextBlock Text="Tình trạng đơn"
+                                           FontSize="25"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                                           Foreground="#5A4D4C"/>
+                                </Border>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Border Background="#8ED3F4"
+                                        BorderThickness= "0,3,3,0"
+                                        CornerRadius="0,0,0,0">
+
+                                </Border>
+                            </Grid>
+                        </Grid>
+
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Border BorderThickness="0,0,3,0"
+                                        CornerRadius="0,20,0,0"
+                                        Background="#8ED3F4">
+                                    <TextBlock Text="Địa điểm"
+                                           FontSize="25"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center"
+                                           Foreground="#5A4D4C"/>
+                                </Border>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Border Background="#8ED3F4"
+                                        BorderThickness= "0,3,3,0"
+                                        CornerRadius="0,0,20,0">
+
+                                </Border>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+
+        </Grid>
+    </Border>
 </UserControl>
