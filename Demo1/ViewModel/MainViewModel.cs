@@ -89,7 +89,7 @@ namespace Demo1.ViewModel
                 ShowAddReceivingCustomerWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
                 {
                     CurrentChildView = new AddFunctionModel();
-                    Caption = "Người nhận";
+                    Caption = "Tạo đơn hàng";
                     Icon = IconChar.UserGroup;
                 });
 

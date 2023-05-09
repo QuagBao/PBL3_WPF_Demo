@@ -144,7 +144,7 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color1}"
                                      IsChecked="True"
-                                     Command="{Binding ShowHomeViewCommand}">
+                                     Command="{Binding }">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="SquarePollVertical" 
                                               Height="30" Width="30"
@@ -152,6 +152,7 @@
                             <TextBlock Text="Thống kê" FontSize="30" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
+                    
 
                 </StackPanel>
             </Border>
