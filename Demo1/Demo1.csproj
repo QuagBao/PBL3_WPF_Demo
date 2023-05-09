@@ -178,6 +178,9 @@
     <Compile Include="Model\WarehouseStaff.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="View\ResultOfSearch.xaml.cs">
+      <DependentUpon>ResultOfSearch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SearchParcel.xaml.cs">
       <DependentUpon>SearchParcel.xaml</DependentUpon>
     </Compile>
@@ -214,6 +217,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ResourceXAML\MainResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ResultOfSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
