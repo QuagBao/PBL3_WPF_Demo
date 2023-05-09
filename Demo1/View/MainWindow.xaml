@@ -63,7 +63,7 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color1}"
                                      IsChecked="True"
-                                     Command="{Binding ShowAddReceivingCustomerWindowCommand}">
+                                     Command="{Binding ShowTrackingWindowCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="MagnifyingGlass"
                                               Style="{StaticResource menuButtonIcon}"
@@ -76,7 +76,7 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color1}"
                                      IsChecked="True"
-                                     Command="{Binding ShowHomeViewCommand}">
+                                     Command="{Binding ShowAddWindowCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="CirclePlus"
                                               Height="30" Width="30"
@@ -87,7 +87,7 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color1}"
                                      IsChecked="True"
-                                     Command="{Binding ShowAddSendingCustomerWindowCommand}">
+                                     Command="{Binding }">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Minus" 
                                               Height="30" Width="30"

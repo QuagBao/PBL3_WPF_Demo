@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -58,8 +59,7 @@ namespace Demo1.ViewModel
         private bool _isSlow;
         private bool _isCOD;
 
-        private int PosDiffValue;
-        private Dictionary<string, int> dictionary = new Dictionary<string, int>();
+
         public ICommand CreateInvoiceCommand { get; set; }
 
         private string _ShippingMethod;
@@ -111,41 +111,41 @@ namespace Demo1.ViewModel
 
         }
         // đơn vị là kg
-        int MassFee(int mass)
+        double MassFee(double mass)
         {
-            int massFee;
+            double massFee;
             switch (mass)
             {
-                case int n when n < 10:
+                case double n when n < 10.0:
                     massFee = 0;
                     break;
-                case int n when n < 25:
-                    massFee = 25000;
+                case double n when n < 25.0:
+                    massFee = 20000;
                     break;
-                case int n when n < 50:
-                    massFee = 50000;
+                case double n when n < 50.0:
+                    massFee = 40000;
                     break;
                 default:
-                    massFee = 75000;
+                    massFee = 65000;
                     break;
             }
             return massFee;
         }
 
-        // đơn vị là m
-        int VolumeFee(int length, int width, int height)
+        // đơn vị là mm
+        double VolumeFee(double length, double width, double height)
         {
-            int volumeFee;
-            int volume = length * width * height;
+            double volumeFee;
+            double volume = length * width * height;
             switch (volume)
             {
-                case int n when n < 1:
+                case double n when n < 1000000.0:
                     volumeFee = 0;
                     break;
-                case int n when n < 27:
+                case double n when n < 27000000.0:
                     volumeFee = 15000;
                     break;
-                case int n when n < 125:
+                case double n when n < 125000000.0:
                     volumeFee = 30000;
                     break;
                 default:
@@ -156,16 +156,17 @@ namespace Demo1.ViewModel
         }
         double shippingFeeFunc()
         {
-            // danh dau cac thanh pho vao cac vung
-            // vung 1 la Trung du va miền núi bắc bộ
-            // vùng 2 là đồng bằng sông hồng
-            // vùng 3 là Bắc trung bộ
-            // vùng 4 là nam trung bộ
-            // vùng 5 là đông nam bộ
-            // vùng 6 là đông bằng sông cửu long
+        Dictionary<string, int> dictionary = new Dictionary<string, int>();
+        double posDiffValue;
+        // danh dau cac thanh pho vao cac vung
+        // vung 1 la Trung du va miền núi bắc bộ
+        // vùng 2 là đồng bằng sông hồng
+        // vùng 3 là Bắc trung bộ
+        // vùng 4 là nam trung bộ
+        // vùng 5 là đông nam bộ
+        // vùng 6 là đông bằng sông cửu long
 
-
-            // vùng 1
+        // vùng 1
             dictionary.Add("Lai Châu", 1);
             dictionary.Add("Điện Biên", 1);
             dictionary.Add("Sơn La", 1);
@@ -242,15 +243,18 @@ namespace Demo1.ViewModel
             dictionary.Add("Kiên Giang", 7);
             dictionary.Add("Bạc Liêu", 7);
             dictionary.Add("Cà Mau", 7);
-            bool ExtraFeeCheck = isSpec;
-            bool TransportationFeeCheck = isFast;
-            PosDiffValue = Math.Abs(dictionary[SCustomerCity] - dictionary[RCustomerCity]);
-            int PosFee = 20000 + PosDiffValue * 5000;
-            int TotalFee = PosFee;
-            if (ExtraFeeCheck) TotalFee += 20000;
-            if (TransportationFeeCheck) TotalFee += 20000;
-            TotalFee += MassFee(int.Parse(ParcelMass)) +
-            VolumeFee(int.Parse(ParcelLength), int.Parse(ParcelWidth), int.Parse(ParcelHeight));
+            bool extraFeeCheck = isSpec;
+            bool transportationFeeCheck = isFast;
+            bool cODFeeCheck = isCOD;
+            posDiffValue = Math.Abs(dictionary[SCustomerCity] - dictionary[RCustomerCity]);
+            double posFee = 17000 + posDiffValue * 5000;
+            double TotalFee = posFee;
+            if (extraFeeCheck) TotalFee += 17000;
+            if (transportationFeeCheck) TotalFee += 17000;
+            if (cODFeeCheck) TotalFee += (12000 + double.Parse(ParcelValue));
+            TotalFee += MassFee(double.Parse(ParcelMass)) +
+            VolumeFee(double.Parse(ParcelLength), double.Parse(ParcelWidth), double.Parse(ParcelHeight));
+
 
             return TotalFee;
         }
@@ -615,15 +619,40 @@ namespace Demo1.ViewModel
            
             bool checkValid()
             {
+
+                
                 if (string.IsNullOrEmpty(SCustomerName) || string.IsNullOrEmpty(SCustomerID) || string.IsNullOrEmpty(SCustomerAddress) ||
                          string.IsNullOrEmpty(SCustomerPhoneNumber) || string.IsNullOrEmpty(SCustomerDistrict) || string.IsNullOrEmpty(SCustomerCity) ||
                          string.IsNullOrEmpty(RCustomerName) || string.IsNullOrEmpty(RCustomerID) || string.IsNullOrEmpty(RCustomerAddress) ||string.IsNullOrEmpty(ParcelLength) ||
                          string.IsNullOrEmpty(RCustomerPhoneNumber) || string.IsNullOrEmpty(RCustomerDistrict) || string.IsNullOrEmpty(RCustomerCity) || string.IsNullOrEmpty(ParcelHeight)||
-                         string.IsNullOrEmpty(ParcelName) || string.IsNullOrEmpty(ParcelValue) || string.IsNullOrEmpty(ParcelMass) || string.IsNullOrEmpty(ParcelWidth)
+                         string.IsNullOrEmpty(ParcelName)|| string.IsNullOrEmpty(ParcelMass) || string.IsNullOrEmpty(ParcelWidth)
                          || (isSlow == false && isFast == false))
 
                     isValid = 0;
                 else isValid = 1;
+                
+                
+
+              
+                double number, number1, number2, number3, number4;
+                int number5, number6;
+                ////con valid sdt chua lam
+                bool isNumeric = double.TryParse(ParcelValue, out number);
+                bool isNumeric1 = double.TryParse(ParcelMass, out number1);
+                bool isNumeric2 = double.TryParse(ParcelHeight, out number2);
+                bool isNumeric3 = double.TryParse(ParcelWidth, out number3);
+                bool isNumeric4 = double.TryParse(ParcelLength, out number4);
+                bool isNumeric5 = int.TryParse(RCustomerID, out number5);
+                bool isNumeric6 = int.TryParse(SCustomerID, out number6);
+                if (isNumeric&&isNumeric1&&isNumeric2&&isNumeric3&&isNumeric4&&isNumeric5&&isNumeric6)
+                {
+                    isValid = 1;
+                }
+                else
+                {
+                    isValid = 0;
+                }
+
                 if (isValid == 0) return false;
                 else return true;
             }

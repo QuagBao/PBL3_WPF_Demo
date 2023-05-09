@@ -15,8 +15,8 @@ namespace Demo1.ViewModel
             public bool isLoaded = false;
             //Command
             public ICommand LoadedWindowCommand { get; set; }
-            public ICommand ShowAddSendingCustomerWindowCommand { get; set; }
-            public ICommand ShowAddReceivingCustomerWindowCommand { get; set; }
+            
+            public ICommand ShowAddWindowCommand { get; set; }
             public ICommand ShowParcelWindowCommand { get; set; }
             private BaseViewModel _currentChildView;
             private string _caption;
@@ -86,7 +86,7 @@ namespace Demo1.ViewModel
                 });
                 //default view
                 
-                ShowAddReceivingCustomerWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+                ShowAddWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
                 {
                     CurrentChildView = new AddFunctionModel();
                     Caption = "Tạo đơn hàng";
