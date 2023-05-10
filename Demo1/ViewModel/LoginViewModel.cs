@@ -59,11 +59,9 @@ namespace Demo1.ViewModel
         {
             using (var context = new Model.PBL3_demoEntities())
             {
-                var count = context.Accounts.FirstOrDefault(x => x.accountName == UserName && x.accountPassword == Password);
-                if (count!=null)
+                var count = context.Accounts.Where(x => x.accountName == UserName && x.accountPassword == Password).Count();
+                if (count > 0)
                 {
-                    LoginID = count.accountID;
-
                     isLogin = true;
                     p.Close();
                 }

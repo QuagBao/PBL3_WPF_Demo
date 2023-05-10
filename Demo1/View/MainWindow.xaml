@@ -42,7 +42,7 @@
             <!--Navigation Menu-->
             <Border CornerRadius="10,0,0,10"
                         Grid.Column="0"
-                        Background="#272B2F">
+                        Background="#001C44">
 
                 <StackPanel>
 
@@ -162,7 +162,7 @@
                     Grid.Column="1">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="1,0.7" EndPoint="0,0">
-                        <GradientStop Color="#212520" Offset="1"/>
+                        <GradientStop Color="#72A2C0" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <Grid>
@@ -246,7 +246,7 @@
                                 <fa:IconImage Icon="AngleDown" Style="{StaticResource iconButtonIcon    }"/>
 
 
-                            </Button>
+                            </Button >
                             <TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
                                        Foreground="{StaticResource titleColor3}"
                                        FontFamily="Montserrat"
