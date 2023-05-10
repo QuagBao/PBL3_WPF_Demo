@@ -17,24 +17,40 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <Border CornerRadius="20"
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Border CornerRadius="20"
                         Background="#8ED3F4"
                         Margin="15"
                         Width="400">
-                    <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Icon="MagnifyingGlass"
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="MagnifyingGlass"
                                       Height="40" Width="40"
                                       Style="{StaticResource menuButtonIcon}"
                                       Foreground="#5A4D4C"/>
-                        <TextBox   materialDesign:HintAssist.Hint="Nhập mã đơn hàng"
+                            <TextBox   materialDesign:HintAssist.Hint="Nhập mã đơn hàng"
                                    materialDesign:HintAssist.FloatingScale="0"
                                    materialDesign:HintAssist.Foreground="Blue"
                                    FontSize="30" 
                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                    Text="{Binding CustomerName}" 
                                    Foreground="#5A4D4C" Width="400" Height="70" />
-                    </StackPanel>
-                </Border>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Button Content="Tìm kiếm" 
+                            IsDefault="true" 
+                            Background="#8ED3F4" Foreground="#5A4D4C" 
+                            FontSize="20" materialDesign:ButtonAssist.CornerRadius="22" 
+                            Height="45" Width="180"
+                            Margin="-300,0,0,0"/>
+                </Grid>
             </Grid>
 
             <Grid Grid.Row="1">
