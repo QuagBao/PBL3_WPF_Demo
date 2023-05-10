@@ -63,7 +63,7 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color1}"
                                      IsChecked="True"
-                                     Command="{Binding ShowTrackingWindowCommand}">
+                                     Command="{Binding ShowParcelWindowCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="MagnifyingGlass"
                                               Style="{StaticResource menuButtonIcon}"

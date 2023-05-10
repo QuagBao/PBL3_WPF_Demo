@@ -17,7 +17,8 @@ namespace Demo1.ViewModel
             public ICommand LoadedWindowCommand { get; set; }
             
             public ICommand ShowAddWindowCommand { get; set; }
-            public ICommand ShowParcelWindowCommand { get; set; }
+            public ICommand ShowSearchWindowCommand { get; set; }
+        public ICommand ShowParcelWindowCommand { get; set; }
             private BaseViewModel _currentChildView;
             private string _caption;
             private IconChar _icon;
@@ -92,7 +93,13 @@ namespace Demo1.ViewModel
                     Caption = "Tạo đơn hàng";
                     Icon = IconChar.UserGroup;
                 });
+                ShowSearchWindowCommand = new RelayCommand<object>((x) => { return true; }, (x) =>
+                {
+                    CurrentChildView = new SearchParcelModel();
+                    Caption = "Tra cứu đơn";
+                    Icon = IconChar.UserGroup;
+                });
 
-            }
+        }
     }
 }

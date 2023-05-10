@@ -7,6 +7,7 @@
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
+             DataContext="{StaticResource SearchParcelVM}"
              d:DesignHeight="642.7" Width="957">
     <Border CornerRadius="20"
             Background="#8A8683">
@@ -37,7 +38,7 @@
                                    materialDesign:HintAssist.Foreground="Blue"
                                    FontSize="30" 
                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                   Text="{Binding CustomerName}" 
+                                   Text="{Binding SearchText}" 
                                    Foreground="#5A4D4C" Width="400" Height="70" />
                         </StackPanel>
                     </Border>
@@ -49,6 +50,7 @@
                             Background="#8ED3F4" Foreground="#5A4D4C" 
                             FontSize="20" materialDesign:ButtonAssist.CornerRadius="22" 
                             Height="45" Width="180"
+                            Command="{Binding SearchCommand}"
                             Margin="-300,0,0,0"/>
                 </Grid>
             </Grid>
@@ -71,7 +73,7 @@
                                 <Border BorderThickness="0,0,3,0"
                                         CornerRadius="20,0,0,0"
                                         Background="#8ED3F4">
-                                    <TextBlock Text="Mã đơn hàng"
+                                    <TextBlock Text="Tên đơn hàng"
                                            FontSize="25"
                                            VerticalAlignment="Center" HorizontalAlignment="Center"
                                            Foreground="#5A4D4C"/>
@@ -81,7 +83,7 @@
                                 <Border Background="#8ED3F4"
                                         BorderThickness= "0,3,3,0"
                                         CornerRadius="0,0,0,20">
-
+                                    <TextBlock Text="{Binding ParcelName}"></TextBlock>
                                 </Border>
                             </Grid>
                         </Grid>
@@ -95,7 +97,7 @@
                                 <Border BorderThickness="0,0,3,0"
                                         CornerRadius="0,0,0,0"
                                         Background="#8ED3F4">
-                                    <TextBlock Text="Tình trạng đơn"
+                                    <TextBlock Text="Loại đơn hàng"
                                            FontSize="25"
                                            VerticalAlignment="Center" HorizontalAlignment="Center"
                                            Foreground="#5A4D4C"/>
@@ -105,7 +107,7 @@
                                 <Border Background="#8ED3F4"
                                         BorderThickness= "0,3,3,0"
                                         CornerRadius="0,0,0,0">
-
+                                    <TextBlock Text ="{Binding ParcelType}"></TextBlock>
                                 </Border>
                             </Grid>
                         </Grid>
@@ -119,7 +121,7 @@
                                 <Border BorderThickness="0,0,3,0"
                                         CornerRadius="0,20,0,0"
                                         Background="#8ED3F4">
-                                    <TextBlock Text="Địa điểm"
+                                    <TextBlock Text="Giá trị"
                                            FontSize="25"
                                            VerticalAlignment="Center" HorizontalAlignment="Center"
                                            Foreground="#5A4D4C"/>
@@ -129,7 +131,7 @@
                                 <Border Background="#8ED3F4"
                                         BorderThickness= "0,3,3,0"
                                         CornerRadius="0,0,20,0">
-
+                                    <TextBlock Text ="{Binding ParcelValue }"></TextBlock>
                                 </Border>
                             </Grid>
                         </Grid>
