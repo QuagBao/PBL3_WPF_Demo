@@ -44,6 +44,7 @@ namespace Demo1.ViewModel
         private string _RCustomerPhoneNumber;
         private string _RCustomerDistrict;
         private string _RCustomerCity;
+
         //Parcel
         private string _ParcelID;
         private string _ParcelName;
@@ -243,6 +244,7 @@ namespace Demo1.ViewModel
             dictionary.Add("Kiên Giang", 7);
             dictionary.Add("Bạc Liêu", 7);
             dictionary.Add("Cà Mau", 7);
+
             bool extraFeeCheck = isSpec;
             bool transportationFeeCheck = isFast;
             bool cODFeeCheck = isCOD;

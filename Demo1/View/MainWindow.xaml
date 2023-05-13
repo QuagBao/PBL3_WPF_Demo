@@ -15,14 +15,14 @@
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True"
-        Title="MainWindow" Height="900" Width="1300">
+        Title="MainWindow" Height="740" Width="1300">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding LoadedWindowCommand}" CommandParameter="{Binding ElementName=mainWindow}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Window.Resources>
-        
+
         <DataTemplate DataType="{x:Type viewModel:AddFunctionModel}">
             <local:AddFuncView/>
         </DataTemplate>
@@ -152,7 +152,7 @@
                             <TextBlock Text="Thống kê" FontSize="30" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-                    
+
 
                 </StackPanel>
             </Border>

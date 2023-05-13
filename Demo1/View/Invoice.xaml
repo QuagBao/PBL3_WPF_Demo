@@ -7,20 +7,18 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:viewModel="clr-namespace:Demo1.ViewModel"
       xmlns:local="clr-namespace:Demo1" d:DataContext="{d:DesignInstance Type=viewModel:AddFunctionModel}"
-        mc:Ignorable="d" d:DesignWidth="1000" Height="815"
+        mc:Ignorable="d" d:DesignWidth="900" Height="800"
   >
 
     <Border>
         <ScrollViewer>
-            <Grid Background="Black" Height="1000">
+            <Grid Background="Black" Height="800">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="200"/>
                     <RowDefinition Height="200"/>
                     <RowDefinition Height="200"/>
                     <RowDefinition Height="200"/>
-                    <RowDefinition Height="150"/>
-                    <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
@@ -115,12 +113,8 @@
                             BorderThickness="0,0,0,3">
                             <StackPanel Orientation="Vertical">
                                 <TextBlock   Text="Thông tin dịch vụ"
-                                      
                                        FontSize="22" 
                                        FontWeight="Bold"
-                                       
-                                       
-                                       
                                        Foreground="#0A003A" Width="250" Height="50"/>
                                 <TextBlock
                                        

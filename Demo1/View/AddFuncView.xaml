@@ -1,6 +1,5 @@
 ﻿<UserControl x:Class="Demo1.AddFuncView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             x:Name="addFuncView"
                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -10,19 +9,18 @@
                 mc:Ignorable="d"
                 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
                 xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-                d:DataContext="{d:DesignInstance Type=viewModel:AddFunctionModel}"
-                Height="600" Width="1000">
+                Height="600" Width="960">
     <Border CornerRadius="20"
-            Background="#272B2F" Margin="0,44,0,-1534">
-        <Grid Margin="0,30,0,0">
+            Background="#328DAA" Margin="0,0,0,0">
+        <Grid Margin="0,68,10,1523">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
-                <ColumnDefinition Width="223*"/>
-                <ColumnDefinition Width="27*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0*"/>
                 <ColumnDefinition Width="0*"/>
                 <ColumnDefinition Width="0*"/>
             </Grid.ColumnDefinitions>
-            <ScrollViewer Grid.ColumnSpan="3" Margin="0,-38,0,1450">
+            <ScrollViewer Grid.ColumnSpan="2" Margin="0,-33,0,-528">
                 <Grid>
                     <!--Main Section-->
                     <Grid>
@@ -68,110 +66,108 @@
                             <!--16-->
                             <RowDefinition Height="250"/>
                             <!--17-->
-                            <RowDefinition Height="250"/>
+                            <RowDefinition Height="180"/>
                             <!--18-->
-                            <RowDefinition Height="200"/>
+                            <RowDefinition Height="100"/>
                             <!--19-->
-                           
+
                         </Grid.RowDefinitions>
 
                         <Grid Grid.Row="0">
                             <Border CornerRadius="20"
-                                Background="Black"
+                                Background="#FFFFFF"
                                 Width="400"
                                 Margin="20,10,30,10">
                                 <StackPanel>
-                                    <TextBox   materialDesign:HintAssist.Hint="Thông tin người gửi"
-                                           materialDesign:HintAssist.FloatingScale="0"
-                                           materialDesign:HintAssist.Foreground="Blue"
-                                           FontSize="30"
-                                               
-                                           VerticalContentAlignment="Center"
-                                           HorizontalContentAlignment="Center"
-                                           Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                          
-                                           Foreground="#BCFEFE" Width="400" Height="70" FontWeight="Bold" IsUndoEnabled="False" IsEnabled="False"/>
+                                    <TextBlock Text="Thông tin người gửi"
+                                               FontSize="35" FontWeight="Bold"
+                                               Margin="10"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               Style="{StaticResource MaterialDesignTextBlock}"
+                                               Foreground="#5A4D4C"/>
                                 </StackPanel>
                             </Border>
                         </Grid>
 
                         <Grid Grid.Row="1">
                             <Border CornerRadius="20"
-                                Background="Black"
+                                Background="#FFFFFF"
                                 Margin="20,10,30,10">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:IconImage Icon="UserGroup"
-                                              Height="40" Width="40"
-                                              Style="{StaticResource menuButtonIcon}"
-                                Foreground="White"/>
+                                                  Height="40" Width="40"
+                                                  Style="{StaticResource menuButtonIcon}"
+                                                  Foreground="#5A4D4C"/>
                                     <TextBox   materialDesign:HintAssist.Hint="Nhập tên người gửi"
-                                           materialDesign:HintAssist.FloatingScale="0"
-                                           materialDesign:HintAssist.Foreground="Blue"
-                                           FontSize="30" 
-                                           Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                           Text="{Binding SCustomerName,Mode=TwoWay}" 
-                                           Foreground="White" Width="800" Height="70"/>
+                                               materialDesign:HintAssist.FloatingScale="0"
+                                               materialDesign:HintAssist.Foreground="Blue"
+                                               FontSize="30" 
+                                               BorderThickness="0 0 0 0"
+                                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                               Text="{Binding SCustomerName,Mode=TwoWay}" 
+                                               Foreground="#5A4D4C" Width="800" Height="70"/>
                                 </StackPanel>
                             </Border>
                         </Grid>
 
                         <Grid Grid.Row="2">
                             <Border CornerRadius="20"
-                                Background="Black"
+                                Background="White"
                                 Margin="20,10,30,10">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:IconImage Icon="AddressCard" 
-                                              Style="{StaticResource menuButtonIcon}"
-                                              Height="40" Width="40"
-                                              Foreground="White"/>
+                                                  Style="{StaticResource menuButtonIcon}"
+                                                  Height="40" Width="40"
+                                                  Foreground="#5A4D4C"/>
                                     <TextBox   materialDesign:HintAssist.Hint="Nhập chứng minh nhân dân người gửi"
-                                       materialDesign:HintAssist.FloatingScale="0"
-                                       materialDesign:HintAssist.Foreground="Blue"
-                                       FontSize="30" 
-                                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                       Text="{Binding SCustomerID,Mode=TwoWay}" 
-                                       Foreground="White" Width="800" Height="70"/>
+                                               materialDesign:HintAssist.FloatingScale="0"
+                                               materialDesign:HintAssist.Foreground="Blue"
+                                               FontSize="30" BorderThickness="0"
+                                               Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                               Text="{Binding SCustomerID,Mode=TwoWay}" 
+                                               Foreground="#5A4D4C" Width="800" Height="70"/>
                                 </StackPanel>
                             </Border>
                         </Grid>
 
                         <Grid Grid.Row="3">
                             <Border CornerRadius="20"
-                                Background="Black"
+                                Background="White"
                                 Margin="20,10,30,10">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:IconImage Icon="Phone" 
                                               Style="{StaticResource menuButtonIcon}"
                                               Height="40" Width="40"
-                                              Foreground="White"/>
+                                              Foreground="#5A4D4C"/>
                                     <TextBox   materialDesign:HintAssist.Hint="Nhập số điện thoại người gửi"
                                            materialDesign:HintAssist.Foreground="Blue"
                                            materialDesign:HintAssist.FloatingScale="0"
-                                           FontSize="30" 
+                                           FontSize="30" BorderThickness="0"
                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                            Text="{Binding SCustomerPhoneNumber,Mode=TwoWay}"
                                            VerticalAlignment="Center"
-                                           Foreground="White" Width="800" Height="70"/>
+                                           Foreground="#5A4D4C" Width="800" Height="70"/>
                                 </StackPanel>
                             </Border>
                         </Grid>
 
                         <Grid Grid.Row="4">
                             <Border CornerRadius="20"
-                                Background="Black"
+                                Background="White"
                                 Margin="20,10,30,10">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:IconImage Icon="Home" 
                                               Style="{StaticResource menuButtonIcon}"
                                               Height="40" Width="40"
-                                              Foreground="White"/>
+                                              Foreground="#5A4D4C"/>
                                     <TextBox    materialDesign:HintAssist.Hint="Nhập địa chỉ nhà"
                                             materialDesign:HintAssist.Foreground="Blue"
                                             materialDesign:HintAssist.FloatingScale="0"
-                                            FontSize="30" 
+                                            FontSize="30" BorderThickness="0"
                                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                             Text="{Binding SCustomerAddress,Mode=TwoWay}" 
-                                            Foreground="White" Width="800" Height="70"
+                                            Foreground="#5A4D4C" Width="800" Height="70"
                                             VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Border>
@@ -186,36 +182,36 @@
 
                             <Grid Grid.Column="0">
                                 <Border CornerRadius="20"
-                                    Background="Black"
+                                    Background="White"
                                     Margin="20,10,30,10">
                                     <StackPanel Orientation="Horizontal">
                                         <TextBox  materialDesign:HintAssist.Hint="Quận/Huyện"
-                                              materialDesign:HintAssist.Foreground="Blue"
-                                              materialDesign:HintAssist.FloatingScale="0"
-                                              FontSize="30" 
-                                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                                              Text="{Binding SCustomerDistrict,Mode=TwoWay}"  
-                                              VerticalAlignment="Center"
-                                              Foreground="White" Width="400"
-                                              Height="70" Margin="40,0,0,0"/>
+                                                  materialDesign:HintAssist.Foreground="Blue"
+                                                  materialDesign:HintAssist.FloatingScale="0"
+                                                  FontSize="30" BorderThickness="0"
+                                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                                  Text="{Binding SCustomerDistrict,Mode=TwoWay}"  
+                                                  VerticalAlignment="Center"
+                                                  Foreground="#5A4D4C" Width="400"
+                                                  Height="70" Margin="40,0,0,0"/>
                                     </StackPanel>
                                 </Border>
                             </Grid>
 
                             <Grid Grid.Column="1">
                                 <Border CornerRadius="20"
-                                    Background="Black"
-                                    Margin="20,10,30,10">
+                                    Background="White"
+                                    Margin="20,10,10,10">
                                     <StackPanel Orientation="Horizontal">
                                         <TextBox Name="SCustomerCity"
                                               materialDesign:HintAssist.Hint="Tỉnh/Thành phố"
                                               materialDesign:HintAssist.Foreground="Blue"
                                               materialDesign:HintAssist.FloatingScale="0"
-                                              FontSize="30" 
+                                              FontSize="30" BorderThickness="0"
                                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                               Text="{Binding SCustomerCity,Mode=TwoWay}"  
                                               VerticalAlignment="Center"
-                                              Foreground="White" Width="400"
+                                              Foreground="#5A4D4C" Width="400"
                                               Height="70" Margin="40,0,0,0"/>
                                     </StackPanel>
                                 </Border>
@@ -224,101 +220,98 @@
 
                         <Grid Grid.Row="6">
                             <Border CornerRadius="20"
-                                Background="Black"
+                                Background="White"
                                 Width="400"
                                 Margin="20,10,30,10">
                                 <StackPanel>
-                                    <TextBox   materialDesign:HintAssist.Hint="Thông tin người nhận"
-                                           materialDesign:HintAssist.FloatingScale="0"
-                                           materialDesign:HintAssist.Foreground="Blue"
-                                           FontSize="30" 
-                                               
-                                           VerticalContentAlignment="Center"
-                                           HorizontalContentAlignment="Center"
-                                           Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                          
-                                           Foreground="#2D99AE" Width="400" Height="70" FontWeight="Bold" IsEnabled="False"/>
+                                    <TextBlock Text="Thông tin người nhận"
+                                               FontSize="35" FontWeight="Bold"
+                                               Margin="10"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               Style="{StaticResource MaterialDesignTextBlock}"
+                                               Foreground="#5A4D4C"/>
                                 </StackPanel>
                             </Border>
                         </Grid>
 
                         <Grid Grid.Row="7">
                             <Border CornerRadius="20"
-                                Background="Black"
+                                Background="White"
                                 Margin="20,10,30,10">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:IconImage Icon="UserGroup" 
                                               Style="{StaticResource menuButtonIcon}"
                                               Height="40" Width="40"
-                                              Foreground="White"/>
+                                              Foreground="#5A4D4C"/>
                                     <TextBox   materialDesign:HintAssist.Hint="Nhập tên người nhận"
                                            materialDesign:HintAssist.FloatingScale="0"
                                            materialDesign:HintAssist.Foreground="Blue"
-                                           FontSize="30" 
+                                           FontSize="30" BorderThickness="0"
                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                            Text="{Binding RCustomerName,Mode=TwoWay}" 
-                                           Foreground="White" Width="800" Height="70"/>
+                                           Foreground="#5A4D4C" Width="800" Height="70"/>
                                 </StackPanel>
                             </Border>
                         </Grid>
 
                         <Grid Grid.Row="8">
                             <Border CornerRadius="20"
-                                Background="Black"
+                                Background="White"
                                 Margin="20,10,30,10">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:IconImage Icon="AddressCard" 
                                               Style="{StaticResource menuButtonIcon}"
                                               Height="40" Width="40"
-                                              Foreground="White"/>
+                                              Foreground="#5A4D4C"/>
                                     <TextBox   materialDesign:HintAssist.Hint="Nhập chứng minh nhân dân người nhận"
                                        materialDesign:HintAssist.FloatingScale="0"
                                        materialDesign:HintAssist.Foreground="Blue"
-                                       FontSize="30" 
+                                       FontSize="30" BorderThickness="0"
                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                        Text="{Binding RCustomerID,Mode=TwoWay}" 
-                                       Foreground="White" Width="800" Height="70"/>
+                                       Foreground="#5A4D4C" Width="800" Height="70"/>
                                 </StackPanel>
                             </Border>
                         </Grid>
 
                         <Grid Grid.Row="9">
                             <Border CornerRadius="20"
-                                Background="Black"
+                                Background="White"
                                 Margin="20,10,30,10">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:IconImage Icon="Phone" 
                                               Style="{StaticResource menuButtonIcon}"
                                               Height="40" Width="40"
-                                              Foreground="White"/>
+                                              Foreground="#5A4D4C"/>
                                     <TextBox   materialDesign:HintAssist.Hint="Nhập số điện thoại người nhận"
                                            materialDesign:HintAssist.Foreground="Blue"
                                            materialDesign:HintAssist.FloatingScale="0"
-                                           FontSize="30" 
+                                           FontSize="30" BorderThickness="0"
                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                            Text="{Binding RCustomerPhoneNumber,Mode=TwoWay}"
                                            VerticalAlignment="Center"
-                                           Foreground="White" Width="800" Height="70"/>
+                                           Foreground="#5A4D4C" Width="800" Height="70"/>
                                 </StackPanel>
                             </Border>
                         </Grid>
 
                         <Grid Grid.Row="10">
                             <Border CornerRadius="20"
-                                Background="Black"
+                                Background="White"
                                 Margin="20,10,30,10">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:IconImage Icon="Home" 
                                               Style="{StaticResource menuButtonIcon}"
                                               Height="40" Width="40"
-                                              Foreground="White"/>
+                                              Foreground="#5A4D4C"/>
                                     <TextBox    materialDesign:HintAssist.Hint="Nhập địa chỉ nhà"
                                             materialDesign:HintAssist.Foreground="Blue"
                                             materialDesign:HintAssist.FloatingScale="0"
-                                            FontSize="30" 
+                                            FontSize="30" BorderThickness="0"
                                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                             Text="{Binding RCustomerAddress,Mode=TwoWay}" 
-                                            Foreground="White" Width="800" Height="70"
+                                            Foreground="#5A4D4C" Width="800" Height="70"
                                             VerticalAlignment="Center"/>
                                 </StackPanel>
                             </Border>
@@ -332,17 +325,17 @@
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
                                 <Border CornerRadius="20"
-                                    Background="Black"
+                                    Background="White"
                                     Margin="20,10,30,10">
                                     <StackPanel Orientation="Horizontal">
                                         <TextBox  materialDesign:HintAssist.Hint="Quận/Huyện"
                                               materialDesign:HintAssist.Foreground="Blue"
                                               materialDesign:HintAssist.FloatingScale="0"
-                                              FontSize="30" 
+                                              FontSize="30" BorderThickness="0"
                                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                               Text="{Binding RCustomerDistrict,Mode=TwoWay}"  
                                               VerticalAlignment="Center"
-                                              Foreground="White" Width="400"
+                                              Foreground="#5A4D4C" Width="400"
                                               Height="70" Margin="40,0,0,0"/>
                                     </StackPanel>
                                 </Border>
@@ -350,17 +343,17 @@
 
                             <Grid Grid.Column="1">
                                 <Border CornerRadius="20"
-                                    Background="Black"
-                                    Margin="20,10,30,10">
+                                    Background="White"
+                                    Margin="20,10,10,10">
                                     <StackPanel Orientation="Horizontal">
                                         <TextBox  materialDesign:HintAssist.Hint="Tỉnh/Thành phố"
                                               materialDesign:HintAssist.Foreground="Blue"
                                               materialDesign:HintAssist.FloatingScale="0"
-                                              FontSize="30" 
+                                              FontSize="30" BorderThickness="0"
                                               Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                               Text="{Binding RCustomerCity,Mode=TwoWay}"  
                                               VerticalAlignment="Center"
-                                              Foreground="White" Width="400"
+                                              Foreground="#5A4D4C" Width="400"
                                               Height="70" Margin="40,0,0,0"/>
                                     </StackPanel>
                                 </Border>
@@ -369,124 +362,121 @@
 
                         <Grid Grid.Row="12">
                             <Border CornerRadius="20"
-                                Background="Black"
+                                Background="White"
                                 Width="400"
                                 Margin="20,10,30,10">
                                 <StackPanel>
-                                    <TextBox   materialDesign:HintAssist.Hint="Thông tin đơn hàng"
-                                           materialDesign:HintAssist.FloatingScale="0"
-                                           materialDesign:HintAssist.Foreground="Blue"
-                                           FontSize="30" 
-                                               
-                                           VerticalContentAlignment="Center"
-                                           HorizontalContentAlignment="Center"
-                                           Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                           
-                                           Foreground="#2D99AE" Width="400" Height="70" FontWeight="Bold" IsEnabled="False"/>
+                                    <TextBlock Text="Thông tin đơn hàng"
+                                               FontSize="35" FontWeight="Bold"
+                                               Margin="10"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center"
+                                               Style="{StaticResource MaterialDesignTextBlock}"
+                                               Foreground="#5A4D4C"/>
                                 </StackPanel>
                             </Border>
                         </Grid>
 
                         <Grid Grid.Row="13">
                             <Border CornerRadius="20"
-                                Background="Black"
+                                Background="White"
                                 Margin="20,10,30,10">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:IconImage Icon="Box" 
                                               Style="{StaticResource menuButtonIcon}"
                                               Height="40" Width="40"
-                                              Foreground="White"
+                                              Foreground="#5A4D4C"
                                               VerticalAlignment="Center"/>
                                     <TextBox   materialDesign:HintAssist.Hint="Nhập tên đơn hàng"
                                            materialDesign:HintAssist.FloatingScale="0"
                                            materialDesign:HintAssist.Foreground="Blue"
-                                           FontSize="30" 
+                                           FontSize="30" BorderThickness="0"
                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                            Text="{Binding ParcelName,Mode=TwoWay}" 
                                            VerticalAlignment="Center"
-                                           Foreground="White" Width="800" Height="70"/>
+                                           Foreground="#5A4D4C" Width="800" Height="70"/>
                                 </StackPanel>
                             </Border>
                         </Grid>
 
                         <Grid Grid.Row="14">
                             <Border CornerRadius="20"
-                                Background="Black"
+                                Background="White"
                                 Margin="20,10,30,10">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:IconImage Icon="MoneyBill" 
                                               Style="{StaticResource menuButtonIcon}"
-                                              Foreground="White"
+                                              Foreground="#5A4D4C"
                                               Height="40" Width="40"
                                               VerticalAlignment="Center"/>
                                     <TextBox   materialDesign:HintAssist.Hint="Nhập giá trị đơn hàng"
                                            materialDesign:HintAssist.FloatingScale="0"
                                            materialDesign:HintAssist.Foreground="Blue"
-                                           FontSize="30" 
+                                           FontSize="30" BorderThickness="0"
                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                            Text="{Binding ParcelValue,Mode=TwoWay}" 
                                            VerticalAlignment="Center"
-                                           Foreground="White" Width="800" Height="70"/>
+                                           Foreground="#5A4D4C" Width="800" Height="70"/>
                                 </StackPanel>
                             </Border>
                         </Grid>
 
                         <Grid Grid.Row="15">
                             <Border CornerRadius="20"
-                                Background="Black"
+                                Background="White"
                                 Margin="20,10,30,10">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:IconImage Icon="BalanceScale" 
                                               Style="{StaticResource menuButtonIcon}"
-                                              Foreground="White"
+                                              Foreground="#5A4D4C"
                                               Height="40" Width="40"
                                               VerticalAlignment="Center"/>
                                     <TextBox   materialDesign:HintAssist.Hint="Nhập khối lượng đơn hàng"
                                            materialDesign:HintAssist.FloatingScale="0"
                                            materialDesign:HintAssist.Foreground="Blue"
-                                           FontSize="30" 
+                                           FontSize="30" BorderThickness="0"
                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                            Text="{Binding ParcelMass,Mode=TwoWay}" 
                                            VerticalAlignment="Center"
-                                           Foreground="White" Width="800" Height="70"/>
+                                           Foreground="#5A4D4C" Width="800" Height="70"/>
                                 </StackPanel>
                             </Border>
                         </Grid>
 
                         <Grid Grid.Row="16">
                             <Border CornerRadius="20"
-                                Background="Black"
+                                Background="White"
                                 Margin="20,10,30,10">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:IconImage Icon="Expand" 
                                               Style="{StaticResource menuButtonIcon}"
                                               Width="40" Height="40"
-                                              Foreground="White"
+                                              Foreground="#5A4D4C"
                                               VerticalAlignment="Center"/>
                                     <TextBox   materialDesign:HintAssist.Hint="Dài"
                                            materialDesign:HintAssist.FloatingScale="0"
                                            materialDesign:HintAssist.Foreground="Blue"
-                                           FontSize="30" 
+                                           FontSize="30" BorderThickness="0"
                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                            Text="{Binding ParcelLength,Mode=TwoWay}" 
                                            VerticalAlignment="Center"
-                                           Foreground="White" Width="300" Height="70"/>
+                                           Foreground="#5A4D4C" Width="300" Height="70"/>
                                     <TextBox   materialDesign:HintAssist.Hint="Rộng"
                                            materialDesign:HintAssist.FloatingScale="0"
                                            materialDesign:HintAssist.Foreground="Blue"
-                                           FontSize="30" 
+                                           FontSize="30" BorderThickness="0"
                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                            Text="{Binding ParcelWidth,Mode=TwoWay}" 
                                            VerticalAlignment="Center"
-                                           Foreground="White" Width="300" Height="70"/>
+                                           Foreground="#5A4D4C" Width="300" Height="70"/>
                                     <TextBox   materialDesign:HintAssist.Hint="Cao"
                                            materialDesign:HintAssist.FloatingScale="0"
                                            materialDesign:HintAssist.Foreground="Blue"
-                                           FontSize="30" 
+                                           FontSize="30" BorderThickness="0"
                                            Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                            Text="{Binding ParcelHeight,Mode=TwoWay}" 
                                            VerticalAlignment="Center"
-                                           Foreground="White" Width="300" Height="70"/>
+                                           Foreground="#5A4D4C" Width="300" Height="70"/>
                                 </StackPanel>
                             </Border>
                         </Grid>
@@ -496,44 +486,99 @@
 
                         <Grid Grid.Row="17">
                             <Border CornerRadius="20"
-                                Background="Black"
+                                Background="White"
                                 Margin="20,10,30,10">
                                 <StackPanel>
-                                    <TextBlock Text="Loại hàng" Foreground="White" FontSize="30" Margin="20 0 0 20"/>
-                                    <CheckBox Content="Hàng dễ vỡ/ đồ điện tử"  Foreground="White"  FontSize="30" FontFamily="Montserrat" Margin="0 0 0 20"
+                                    <TextBlock Text="Loại hàng" 
+                                               Foreground="#5A4D4C" FontSize="30"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Left"
+                                               Margin="40 10 0 0"/>
+                                    <CheckBox Content="Hàng dễ vỡ/ đồ điện tử"  
+                                              Foreground="#5A4D4C"  FontSize="30" 
+                                              FontFamily="Montserrat" 
+                                              VerticalAlignment="Center"
+                                              HorizontalAlignment="Left"
+                                              VerticalContentAlignment="Center"
+                                              HorizontalContentAlignment="Left"
+                                              Margin="80 10 0 0"
                                     IsChecked="{Binding isSpec,Mode=TwoWay}"/>
-                                    <TextBlock Text="Hình thức vận chuyển" Foreground="White" FontSize="30" Margin="20 0 0 20"/>
-                                    <CheckBox Content="COD"  Foreground="White"  FontSize="30" FontFamily="Montserrat" Margin="0 0 0 20"
-                                    IsChecked="{Binding isCOD,Mode=TwoWay}"/>
-
+                                    <TextBlock Text="Hình thức vận chuyển" 
+                                               Foreground="#5A4D4C" FontSize="30" 
+                                               Margin="40 10 0 0"/>
+                                    <CheckBox Content="COD"  
+                                              Foreground="#5A4D4C"  
+                                              FontSize="30" FontFamily="Montserrat" 
+                                              Margin="80 10 0 0"
+                                              VerticalAlignment="Center"
+                                              HorizontalAlignment="Left"
+                                              VerticalContentAlignment="Center"
+                                              HorizontalContentAlignment="Left"
+                                              IsChecked="{Binding isCOD,Mode=TwoWay}"/>
                                 </StackPanel>
 
                             </Border>
                         </Grid>
                         <Grid Grid.Row="18">
                             <Border CornerRadius="20"
-                               Background="Black"
+                               Background="White"
                                 Margin="20,10,30,10">
                                 <StackPanel>
-                                    <TextBlock Text="Phương thức vận chuyển" Foreground="White" FontSize="30" Margin="20 0 0 20"/>
-                                    <RadioButton Content="Nhanh" GroupName="ShippingMethod" Foreground="White"  FontSize="30" FontFamily="Montserrat" IsChecked="{Binding isFast,Mode=TwoWay}"/>
-                                    <RadioButton Content="Chậm" GroupName="ShippingMethod" Foreground="White"  FontSize="30" FontFamily="Montserrat" IsChecked="{Binding isSlow,Mode=TwoWay}"/>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="100"/>
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+
+                                        <Grid Grid.Row="0">
+                                            <TextBlock Text="Phương thức vận chuyển" 
+                                                       Foreground="#5A4D4C" 
+                                                       FontSize="35" 
+                                                       VerticalAlignment="Center"
+                                                       HorizontalAlignment="Center"/>
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <RadioButton Content="Nhanh" 
+                                                         GroupName="ShippingMethod" 
+                                                         Foreground="#5A4D4C" 
+                                                         FontSize="30" 
+                                                         FontFamily="Montserrat" 
+                                                         VerticalAlignment="Center"
+                                                         HorizontalAlignment="Right"
+                                                         Margin="0,0,200,0"
+                                                         IsChecked="{Binding isFast,Mode=TwoWay}"/>
+                                            <RadioButton Content="Chậm" 
+                                                         GroupName="ShippingMethod" 
+                                                         Foreground="#5A4D4C"  
+                                                         FontSize="30"
+                                                         VerticalAlignment="Center"
+                                                         HorizontalAlignment="Left"
+                                                         Margin="200 0 0 0"
+                                                         FontFamily="Montserrat" IsChecked="{Binding isSlow,Mode=TwoWay}"/>
+                                        </Grid>
+                                    </Grid>
                                 </StackPanel>
                             </Border>
                         </Grid>
                         <Grid Grid.Row="19">
-                            <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                            <StackPanel Orientation="Horizontal">
                                 <Button Content="Làm mới" 
-                                    Margin="200,0,90,0"
-                                    IsDefault="true"
-                                    
-                                    Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="45" Width="150" 
-                                    Command="{Binding RefreshCommand}"/>
+                                        Margin="245,0,30,0"
+                                        IsDefault="true"
+                                        Background="#05B790" 
+                                        Foreground="#ffffff" FontSize="18" 
+                                        materialDesign:ButtonAssist.CornerRadius="22" 
+                                        Height="45" Width="150" 
+                                        Command="{Binding RefreshCommand}"/>
 
                                 <Button Content="Xác nhận" 
-                                    IsDefault="true"
-                                    Background="#05B790" Foreground="#ffffff" FontSize="18" materialDesign:ButtonAssist.CornerRadius="22" Height="46" Width="150"
-                                    Command="{Binding AddAndCreateInvoiceCommand}">
+                                        IsDefault="true"
+                                        Background="#05B790" 
+                                        Foreground="#ffffff" FontSize="18" 
+                                        materialDesign:ButtonAssist.CornerRadius="22" 
+                                        Height="46" Width="150"
+                                        Margin="140,0,30,0"
+                                        Command="{Binding AddAndCreateInvoiceCommand}">
 
                                 </Button>
                                 <!--<Button Content="Xuất hoá đơn" 

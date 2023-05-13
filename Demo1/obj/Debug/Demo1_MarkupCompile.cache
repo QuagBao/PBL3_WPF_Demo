@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Bao\Năm 2\Học kì 2 năm 2\PBL3_Demo\Demo1\obj\Debug\
+D:\Bao\PBL3_Demo\Demo1\obj\Debug\
 Demo1
 none
 false
 DEBUG;TRACE
-D:\Bao\Năm 2\Học kì 2 năm 2\PBL3_Demo\Demo1\App.xaml
-111412788458
+D:\Bao\PBL3_Demo\Demo1\App.xaml
+141939167122
 2739969757
-3295453550
-321626616371
-View\AddFuncView.xaml;View\Invoice.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;ResourceXAML\MainResource.xaml;View\ResultOfSearch.xaml;View\SearchParcel.xaml;Styles\ButtonStyles.xaml;Styles\ScrollViewer.xaml;Styles\UIColors.xaml;View\Window1.xaml;
+35-1354147070
+32-46525423
+View\AddFuncView.xaml;View\Invoice.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;ResourceXAML\MainResource.xaml;View\ResultOfSearch.xaml;View\ResultOfUpdateStatusParcel.xaml;View\SearchParcel.xaml;Styles\ButtonStyles.xaml;Styles\ScrollViewer.xaml;Styles\UIColors.xaml;View\StatisticsView.xaml;View\UpdateStatusParcelView.xaml;View\Window1.xaml;
 
 False
 
