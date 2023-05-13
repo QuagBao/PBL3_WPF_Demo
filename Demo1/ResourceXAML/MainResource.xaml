@@ -4,5 +4,6 @@
     <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
     <viewmodel:AddFunctionModel x:Key="AddFM"></viewmodel:AddFunctionModel>
-    <viewmodel:SearchParcelModel x:Key="SearchParcelVM"></viewmodel:SearchParcelModel>
+    <viewmodel:SearchParcelModel x:Key="SearchPM"></viewmodel:SearchParcelModel>
+    <viewmodel:Window1Model x:Key="W1"></viewmodel:Window1Model>
 </ResourceDictionary>

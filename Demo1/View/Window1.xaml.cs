@@ -17,12 +17,11 @@ namespace Demo1
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Window1 : UserControl
     {
         public Window1()
         {
             InitializeComponent();
         }
-
     }
 }

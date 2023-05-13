@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\PBL3_Demo\Demo1\obj\Debug\
+C:\Users\ASUS\source\repos\PBL3_WPF_Demo2\Demo1\obj\Debug\
 Demo1
 none
 false
 DEBUG;TRACE
-C:\PBL3_Demo\Demo1\App.xaml
+C:\Users\ASUS\source\repos\PBL3_WPF_Demo2\Demo1\App.xaml
 111412788458
 2739969757
-351248285939
-32-2106350037
+371619088722
+32-2016835927
 View\AddFuncView.xaml;View\Invoice.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;ResourceXAML\MainResource.xaml;View\ResultOfSearch.xaml;View\SearchParcel.xaml;Styles\ButtonStyles.xaml;Styles\ScrollViewer.xaml;Styles\UIColors.xaml;View\Window1.xaml;
 
 True

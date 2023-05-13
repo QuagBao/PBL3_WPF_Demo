@@ -26,6 +26,12 @@
         <DataTemplate DataType="{x:Type viewModel:AddFunctionModel}">
             <local:AddFuncView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:SearchParcelModel}">
+            <local:SearchParcel/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:Window1Model}">
+            <local:Window1/>
+        </DataTemplate>
     </Window.Resources>
 
     <Border CornerRadius="20"                    
@@ -52,7 +58,7 @@
                                     Margin="15,25,0,40">
 
                         <!--<Image Source="/Images/Logo.png" Height="30"/>-->
-                        <TextBlock Text="Quản trị viên"
+                        <TextBlock Text="{Binding RoleName}"
                                        Foreground="{StaticResource titleColor2}"
                                        FontSize="20"
                                        FontFamily="Montserrat"
@@ -63,7 +69,7 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color1}"
                                      IsChecked="True"
-                                     Command="{Binding ShowParcelWindowCommand}">
+                                     Command="{Binding ShowSearchWindowCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="MagnifyingGlass"
                                               Style="{StaticResource menuButtonIcon}"
@@ -76,7 +82,10 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color1}"
                                      IsChecked="True"
+                                     
+                                     
                                      Command="{Binding ShowAddWindowCommand}">
+                        
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="CirclePlus"
                                               Height="30" Width="30"
@@ -87,26 +96,29 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color1}"
                                      IsChecked="True"
-                                     Command="{Binding }">
+                                     Visibility="{Binding IsRole1AllowedToVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                     Command="{Binding ShowAddWindowCommand }">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Minus" 
                                               Height="30" Width="30"
                                               Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Khách hàng" FontSize="30" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Tạo đơn" FontSize="30" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color1}"
                                      IsChecked="True"
-                                     Command="{Binding ShowParcelWindowCommand}">
+                                     Visibility="{Binding IsRole2Or3AllowedToVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                     Command="{Binding ShowSearchWindowCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Minus" 
                                               Height="30" Width="30"
                                               Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Đơn hàng" FontSize="30" Style="{StaticResource menuButtonText}"/>
+                            <TextBlock Text="Cập nhật" FontSize="30" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton Style="{StaticResource menuButton}"
+                    <RadioButton Name="TrackingBtn"
+                                    Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color1}"
                                      IsChecked="True"
                                      Command="{Binding ShowHomeViewCommand}">
@@ -120,7 +132,7 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color1}"
                                      IsChecked="True"
-                                     Command="{Binding ShowHomeViewCommand}">
+                                     Command="{Binding ShowWindow1Command}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Minus" 
                                               Height="30" Width="30"
@@ -132,6 +144,7 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color1}"
                                      IsChecked="True"
+                                     Visibility="{Binding Role23, Converter={StaticResource BooleanToVisibilityConverter}}"
                                      Command="{Binding ShowHomeViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Minus" 
@@ -144,6 +157,7 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color1}"
                                      IsChecked="True"
+                                     Visibility="{Binding IsRole3AllowedToVisible, Converter={StaticResource BooleanToVisibilityConverter}}"         
                                      Command="{Binding }">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="SquarePollVertical" 
@@ -247,8 +261,8 @@
 
 
                             </Button >
-                            <TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
-                                       Foreground="{StaticResource titleColor3}"
+                            <TextBlock Text="{Binding UserName}"
+                                       Foreground="Black"
                                        FontFamily="Montserrat"
                                        FontSize="12"
                                        VerticalAlignment="Center"/>

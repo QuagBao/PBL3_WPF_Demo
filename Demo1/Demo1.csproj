@@ -120,8 +120,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DTO\SearchResultDTO.cs" />
+    <Compile Include="UserInfo\AccountManager.cs" />
     <Compile Include="Validation\Validation.cs" />
     <Compile Include="ViewModel\SearchParcelModel.cs" />
+    <Compile Include="ViewModel\Window1Model.cs" />
     <Compile Include="View\AddFuncView.xaml.cs">
       <DependentUpon>AddFuncView.xaml</DependentUpon>
     </Compile>

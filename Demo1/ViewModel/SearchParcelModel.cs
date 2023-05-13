@@ -12,11 +12,54 @@ using Demo1.Model;
 
 namespace Demo1.ViewModel
 {
-    public class SearchParcelModel : SearchResultDTO
+    public class SearchParcelModel : BaseViewModel
     {
         private string searchText;
-        private ObservableCollection<SearchResultDTO> searchResults;
+        
+        private string parcelName;
+        private string parcelType;
+        private string parcelValue;
 
+
+        public string ParcelName
+        {
+            get { return parcelName; }
+            set
+            {
+                if (parcelName != value)
+                {
+                    parcelName = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        public string ParcelType
+        {
+            get { return parcelType; }
+            set
+            {
+                if (parcelType != value)
+                {
+                    parcelType = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+
+        public string ParcelValue
+        {
+            get { return parcelValue; }
+            set
+            {
+                if (parcelValue != value)
+                {
+                    parcelValue = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
         public string SearchText
         {
             get { return searchText; }
@@ -30,56 +73,41 @@ namespace Demo1.ViewModel
             }
         }
 
-        public ObservableCollection<SearchResultDTO> SearchResults
-        {
-            get { return searchResults; }
-            set
-            {
-                if (searchResults != value)
-                {
-                    searchResults = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+        
+        
 
         public ICommand SearchCommand { get; set; }
 
         public SearchParcelModel()
         {
-            SearchCommand = new RelayCommand<object>((p) => { return !string.IsNullOrEmpty(SearchText); },
+
+            SearchCommand = new RelayCommand<object>((p) => { return true; },
                 (p) => { Search(SearchText); });
+/*            SearchCommand = new RelayCommand<object>((p) => { return !string.IsNullOrEmpty(SearchText); },
+    (p) => { Search(SearchText); });*/
         }
 
-
         void Search(string _parcelID)
-        {
-            SearchResults = new ObservableCollection<SearchResultDTO>();
+        { 
             using (var context = new PBL3_demoEntities())
             {
-                try
-                {
-                    var parcel = context.Parcels.Where(x => x.parcelID == int.Parse(_parcelID)).FirstOrDefault();
+            int num_parcelID = int.Parse(_parcelID);
+                var parcel = context.Parcels.FirstOrDefault(x => x.parcelID == num_parcelID);
                     if (parcel != null)
                     {
-                        var searchResultDTO = new SearchResultDTO
-                        {
-                            ParcelName = parcel.parcelName,
-                            ParcelType = ((bool)parcel.type) ? "Hàng dễ vỡ" : "Hàng bình thường",
-                            ParcelValue = parcel.parcelValue.ToString(),
-                        };
+
+                        ParcelName = parcel.parcelName;
+                        ParcelType = ((bool)parcel.type) ? "Hàng dễ vỡ" : "Hàng bình thường";
+                        ParcelValue = parcel.parcelValue.ToString();
+                           
                     }
                     else
                     {
                         MessageBox.Show("Đơn hàng không tồn tại trong hệ thống! Xin vui lòng thử lại");
                     }
-                }
-                catch
-                {
-                    MessageBox.Show("Có lỗi trong lúc nhập ID, vui lòng thử lại");
-                }
-
             }
+                  
         }
     }
+        
 }

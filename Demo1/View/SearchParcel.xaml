@@ -3,14 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Demo1"
+             
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d" 
-             DataContext="{StaticResource SearchParcelVM}"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             
+             mc:Ignorable="d"
+             DataContext="{StaticResource SearchPM}"
              d:DesignHeight="642.7" Width="957">
+
     <Border CornerRadius="20"
-            Background="#8A8683">
+            Background="Black">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
@@ -56,7 +58,11 @@
             </Grid>
 
             <Grid Grid.Row="1">
-                <Border Margin="30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40*"/>
+                    <ColumnDefinition Width="917*"/>
+                </Grid.ColumnDefinitions>
+                <Border Margin="30,30,30,30" Grid.ColumnSpan="2">
                     <Grid >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="200"/>
@@ -83,7 +89,8 @@
                                 <Border Background="#8ED3F4"
                                         BorderThickness= "0,3,3,0"
                                         CornerRadius="0,0,0,20">
-                                    <TextBlock Text="{Binding ParcelName}"></TextBlock>
+                                    <TextBlock Text="{Binding ParcelName}"
+                                                Foreground="Black"></TextBlock>
                                 </Border>
                             </Grid>
                         </Grid>
@@ -107,7 +114,8 @@
                                 <Border Background="#8ED3F4"
                                         BorderThickness= "0,3,3,0"
                                         CornerRadius="0,0,0,0">
-                                    <TextBlock Text ="{Binding ParcelType}"></TextBlock>
+                                    <TextBlock Text ="{Binding ParcelType}"
+                                               Foreground="Black"></TextBlock>
                                 </Border>
                             </Grid>
                         </Grid>
@@ -131,7 +139,8 @@
                                 <Border Background="#8ED3F4"
                                         BorderThickness= "0,3,3,0"
                                         CornerRadius="0,0,20,0">
-                                    <TextBlock Text ="{Binding ParcelValue }"></TextBlock>
+                                    <TextBlock Text ="{Binding ParcelValue }"
+                                               Foreground="Black"></TextBlock>
                                 </Border>
                             </Grid>
                         </Grid>
