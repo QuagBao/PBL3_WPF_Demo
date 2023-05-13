@@ -610,9 +610,9 @@ namespace Demo1.ViewModel
                 }
                 using (var context1 = new Model.PBL3_demoEntities())
                 {
-                    var lastRow = context1.Parcels.OrderByDescending(x => x.parcelID).FirstOrDefault();
+                      var lastRow = context1.Parcels.OrderByDescending(x => x.parcelID).FirstOrDefault();
                     ParcelID = Convert.ToString(Convert.ToInt32(lastRow.parcelID)+ 1);
-                    var newParcel = new Parcel { parcelID = Convert.ToInt32(ParcelID), parcelName = ParcelName, parcelMass = Convert.ToDouble(ParcelMass), parcelSize = ParcelLength + " x "+ParcelWidth+" x "+ParcelHeight, parcelValue = Convert.ToDouble(ParcelValue), type = isSpec, RCustomerID = RCustomerID, SCustomerID = SCustomerID, shippingMethod = isSlow,isCOD=isCOD };
+                    var newParcel = new Parcel { parcelID = Convert.ToInt32(ParcelID), parcelName = ParcelName, parcelMass = Convert.ToDouble(ParcelMass), parcelSize = ParcelLength + " x "+ParcelWidth+" x "+ParcelHeight, parcelValue = Convert.ToDouble(ParcelValue), type = isSpec, RCustomerID = RCustomerID, SCustomerID = SCustomerID, shippingMethod = isSlow, isCOD = isCOD};
                     context1.Parcels.Add(newParcel);
                     context1.SaveChanges();
                 }

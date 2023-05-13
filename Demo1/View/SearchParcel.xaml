@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Demo1"
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="643" Width="960">
+    
     <Border CornerRadius="20"
-            Background="#8A8683">
+            Background="Black">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
@@ -37,7 +37,7 @@
                                    materialDesign:HintAssist.Foreground="Blue"
                                    FontSize="30" 
                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                   Text="{Binding CustomerName}" 
+                                   Text="{Binding SearchText}" 
                                    Foreground="#5A4D4C" Width="400" Height="70" />
                         </StackPanel>
                     </Border>
@@ -49,12 +49,17 @@
                             Background="#8ED3F4" Foreground="#5A4D4C" 
                             FontSize="20" materialDesign:ButtonAssist.CornerRadius="22" 
                             Height="45" Width="180"
+                            Command="{Binding SearchCommand}"
                             Margin="-300,0,0,0"/>
                 </Grid>
             </Grid>
 
             <Grid Grid.Row="1">
-                <Border Margin="30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40*"/>
+                    <ColumnDefinition Width="917*"/>
+                </Grid.ColumnDefinitions>
+                <Border Margin="30,30,30,30" Grid.ColumnSpan="2">
                     <Grid >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="200"/>
@@ -71,7 +76,7 @@
                                 <Border BorderThickness="0,0,3,0"
                                         CornerRadius="20,0,0,0"
                                         Background="#8ED3F4">
-                                    <TextBlock Text="Mã đơn hàng"
+                                    <TextBlock Text="Tên đơn hàng"
                                            FontSize="25"
                                            VerticalAlignment="Center" HorizontalAlignment="Center"
                                            Foreground="#5A4D4C"/>
@@ -82,7 +87,7 @@
                                         BorderThickness= "0,3,3,0"
                                         CornerRadius="0,0,0,20">
                                     <Grid>
-                                        
+
                                     </Grid>
                                 </Border>
                             </Grid>
@@ -97,7 +102,7 @@
                                 <Border BorderThickness="0,0,3,0"
                                         CornerRadius="0,0,0,0"
                                         Background="#8ED3F4">
-                                    <TextBlock Text="Tình trạng đơn"
+                                    <TextBlock Text="Loại đơn hàng"
                                            FontSize="25"
                                            VerticalAlignment="Center" HorizontalAlignment="Center"
                                            Foreground="#5A4D4C"/>
@@ -107,8 +112,10 @@
                                 <Border Background="#8ED3F4"
                                         BorderThickness= "0,3,3,0"
                                         CornerRadius="0,0,0,0">
+
                                     <Grid>
-                                        
+                                        <TextBlock Text ="{Binding ParcelType}"
+                                               Foreground="Black"></TextBlock>
                                     </Grid>
                                 </Border>
                             </Grid>
@@ -123,7 +130,7 @@
                                 <Border BorderThickness="0,0,3,0"
                                         CornerRadius="0,20,0,0"
                                         Background="#8ED3F4">
-                                    <TextBlock Text="Địa điểm"
+                                    <TextBlock Text="Giá trị"
                                            FontSize="25"
                                            VerticalAlignment="Center" HorizontalAlignment="Center"
                                            Foreground="#5A4D4C"/>
@@ -133,8 +140,10 @@
                                 <Border Background="#8ED3F4"
                                         BorderThickness= "0,3,3,0"
                                         CornerRadius="0,0,20,0">
+
                                     <Grid>
-                                        
+                                        <TextBlock Text ="{Binding ParcelValue }"
+                                               Foreground="Black"></TextBlock>
                                     </Grid>
                                 </Border>
                             </Grid>

@@ -1,4 +1,5 @@
-﻿using FontAwesome.Sharp;
+﻿using Demo1.UserInfo;
+using FontAwesome.Sharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using static Demo1.UserInfo.AccountManager;
 
 namespace Demo1.ViewModel
 {
@@ -13,15 +15,104 @@ namespace Demo1.ViewModel
     {
             //moi thu xu ly o day = datacontext
             public bool isLoaded = false;
-            //Command
-            public ICommand LoadedWindowCommand { get; set; }
+            public bool isRole1=false, isRole2 = false,isRole3 =false;
+            private bool isRole1AllowedToVisible;
+            private bool isRole2AllowedToVisible;
+            private bool isRole3AllowedToVisible;
+            private bool _Role23;
+            private bool _Role12;
+            public bool Role23
+            {
+                get
+                {
+                    return _Role23;
+
+                }
+                set
+                {
+                    _Role23 = value;
+                    OnPropertyChanged(nameof(Role23));
+                }
+            }
+            public bool Role12
+            {
+                get
+                {
+                    return _Role12;
+
+                }
+                set
+                {
+                    _Role12 = value;
+                    OnPropertyChanged(nameof(Role12));
+                }
+            }
+            public bool IsRole1AllowedToVisible
+            {
+                get { return isRole1AllowedToVisible; }
+                set
+                {
+                    isRole1AllowedToVisible = value;
+                    OnPropertyChanged("IsRole1AllowedToVisible");
+                }
+            }
+
+            public bool IsRole2AllowedToVisible
+            {
+                get { return isRole2AllowedToVisible; }
+                set
+                {
+                    isRole2AllowedToVisible = value;
+                    OnPropertyChanged("IsRole2AllowedToVisible");
+                }
+            }
+
+            public bool IsRole3AllowedToVisible
+            {
+                get { return isRole3AllowedToVisible; }
+                set
+                {
+                    isRole3AllowedToVisible = value;
+                    OnPropertyChanged("IsRole3AllowedToVisible");
+                }
+            }
             
+            public bool IsRole1Or2AllowedToVisible
+            {
+                get { return IsRole1AllowedToVisible || IsRole2AllowedToVisible; }
+             
+            }
+            public bool IsRole2Or3AllowedToVisible
+            {
+                get { return IsRole2AllowedToVisible || IsRole3AllowedToVisible; }
+               
+            }
+
+            //Command
+            public ICommand LoadedWindowCommand { get; set; }         
             public ICommand ShowAddWindowCommand { get; set; }
+            public ICommand ShowSearchWindowCommand { get; set; }          
             public ICommand ShowParcelWindowCommand { get; set; }
+            public ICommand ShowWindow1Command { get; set; }
+            public ICommand ButtonCommand { get; set; }
             private BaseViewModel _currentChildView;
             private string _caption;
             private IconChar _icon;
-            //propertiies
+            private Visibility _buttonVisibility;
+            private string _roleName;
+            private string _userName;
+
+            public Visibility ButtonVisibility
+            {
+                get { return _buttonVisibility; }
+                set
+                {
+                    _buttonVisibility = value;
+                    OnPropertyChanged("ButtonVisibility");
+                }
+            }
+
+            
             public BaseViewModel CurrentChildView
             {
                 get
@@ -60,39 +151,88 @@ namespace Demo1.ViewModel
                     OnPropertyChanged(nameof(Icon));
                 }
             }
-
-            public MainViewModel()
+            public string RoleName
             {
-                LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+                get
                 {
-                    isLoaded = true;
-                    if (p == null)
-                        return;
-                    p.Hide();
-                    LoginWindow loginWindow = new LoginWindow();
-                    loginWindow.ShowDialog();
-                    if (loginWindow.DataContext == null)
-                        return;
+                    return _roleName;
+
+                }
+                set
+                {
+                    _roleName = value;
+                    OnPropertyChanged(nameof(RoleName));
+                }
+            }
+            public string UserName
+            {
+                get
+                {
+                    return _userName;
+
+                }
+                set
+                {
+                    _userName = value;
+                    OnPropertyChanged(nameof(UserName));
+                }
+            }
+        public MainViewModel()
+        {
+
+            LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                isLoaded = true;
+                if (p == null)
+                    return;
+                p.Hide();
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.ShowDialog();
+                if (loginWindow.DataContext == null)
+                return;
                     var LoginVM = loginWindow.DataContext as LoginViewModel;
                     if (LoginVM.isLogin)
                     {
+                        int accessright = AccountManager.Instance.GetAccessRight();
+                        string loginID = AccountManager.Instance.GetAccountID();
+                        RoleName = AccountManager.Instance.GetRoleName(accessright);
+                        UserName = AccountManager.Instance.GetUserName(loginID);
+                        if (accessright == 1) IsRole1AllowedToVisible = true;
+                        else if (accessright == 2) IsRole2AllowedToVisible = true;
+                        else if (accessright == 3) IsRole3AllowedToVisible = true;
 
+                    if (IsRole2Or3AllowedToVisible) Role23 = true;
+                    if (IsRole1Or2AllowedToVisible) Role12 = true;
                         p.Show();
+                 
                     }
                     else
                     {
                         p.Close();
                     }
-                });
-                //default view
-                
-                ShowAddWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-                {
-                    CurrentChildView = new AddFunctionModel();
-                    Caption = "Tạo đơn hàng";
-                    Icon = IconChar.UserGroup;
-                });
+            });
+            //default view
 
-            }
+            ShowAddWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                CurrentChildView = new AddFunctionModel();
+                Caption = "Tạo đơn hàng";
+                Icon = IconChar.UserGroup;
+            });
+            ShowSearchWindowCommand = new RelayCommand<object>((x) => { return true; }, (x) =>
+            {
+                CurrentChildView = new SearchParcelModel();
+                Caption = "Tra cứu đơn";
+                Icon = IconChar.UserGroup;
+            });
+            ShowWindow1Command = new RelayCommand<object>((t) => { return true; }, (t) =>
+            {
+                CurrentChildView = new Window1Model();
+                Caption = "Window1";
+                Icon = IconChar.UserGroup;
+            });
+
+
+        }
     }
 }
