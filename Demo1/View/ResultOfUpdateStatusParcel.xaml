@@ -154,7 +154,7 @@
                                     
                                     Margin="420 0 0 0">
                                 <TextBlock Text="Đang vận chuyển"
-                                           FontSize="30" 
+                                           FontSize="30" Width="Auto" Height="auto"
                                            FontFamily="Montserrat"
                                            VerticalAlignment="Center"
                                            HorizontalAlignment="Center"

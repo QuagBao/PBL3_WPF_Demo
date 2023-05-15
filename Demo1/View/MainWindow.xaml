@@ -173,12 +173,9 @@
 
             <!--Main Section-->
             <Border CornerRadius="0,10,10,0"
-                    Grid.Column="1">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="1,0.7" EndPoint="0,0">
-                        <GradientStop Color="#72A2C0" Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.Background>
+                    Grid.Column="1"
+                    Background="#72A2C0">
+
                 <Grid>
                     <Grid.RowDefinitions>
                         <!--Control Bar-->

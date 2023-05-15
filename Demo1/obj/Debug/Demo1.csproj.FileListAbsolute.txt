@@ -70,3 +70,9 @@ D:\Bao\PBL3_Demo\Demo1\obj\Debug\Demo1.csproj.CoreCompileInputs.cache
 D:\Bao\PBL3_Demo\Demo1\obj\Debug\Demo1.csproj.CopyComplete
 D:\Bao\PBL3_Demo\Demo1\obj\Debug\Demo1.exe
 D:\Bao\PBL3_Demo\Demo1\obj\Debug\Demo1.pdb
+D:\Bao\PBL3_Demo\Demo1\bin\Debug\LiveCharts.dll
+D:\Bao\PBL3_Demo\Demo1\bin\Debug\LiveCharts.Wpf.dll
+D:\Bao\PBL3_Demo\Demo1\bin\Debug\LiveCharts.pdb
+D:\Bao\PBL3_Demo\Demo1\bin\Debug\LiveCharts.xml
+D:\Bao\PBL3_Demo\Demo1\bin\Debug\LiveCharts.Wpf.pdb
+D:\Bao\PBL3_Demo\Demo1\bin\Debug\LiveCharts.Wpf.xml

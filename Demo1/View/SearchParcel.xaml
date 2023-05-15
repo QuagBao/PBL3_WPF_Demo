@@ -9,7 +9,7 @@
              d:DesignHeight="643" Width="960">
     
     <Border CornerRadius="20"
-            Background="Black">
+            Background="#8A8683">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
@@ -33,12 +33,12 @@
                                       Style="{StaticResource menuButtonIcon}"
                                       Foreground="#5A4D4C"/>
                             <TextBox   materialDesign:HintAssist.Hint="Nhập mã đơn hàng"
-                                   materialDesign:HintAssist.FloatingScale="0"
-                                   materialDesign:HintAssist.Foreground="Blue"
-                                   FontSize="30" 
-                                   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                   Text="{Binding SearchText}" 
-                                   Foreground="#5A4D4C" Width="400" Height="70" />
+                                       materialDesign:HintAssist.FloatingScale="0"
+                                       materialDesign:HintAssist.Foreground="Blue"
+                                       FontSize="30" BorderThickness="0"
+                                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                       Text="{Binding SearchText}" 
+                                       Foreground="#5A4D4C" Width="400" Height="70" />
                         </StackPanel>
                     </Border>
                 </Grid>

@@ -178,129 +178,61 @@
                         CornerRadius="20"
                         Margin="20">
                     <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="200"/>
-                            <RowDefinition Height="200"/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="500"/>
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-                                <Grid Grid.Column="0">
-                                    <StackPanel>
-                                        <TextBlock Text="Quần âu nam"
-                                                FontSize="25"
-                                                FontWeight="Medium"
-                                                Foreground="#5A4D4C"
-                                                VerticalAlignment="Center"
-                                                HorizontalAlignment="Left"
-                                                Margin="40,20,0,0"/>
-                                        <TextBlock Text="Áo cuban shirt"
-                                                FontSize="25"
-                                                FontWeight="Medium"
-                                                Foreground="#5A4D4C"
-                                                VerticalAlignment="Center"
-                                                HorizontalAlignment="Left"
-                                                Margin="40,20,0,0"/>
-                                        <TextBlock Text="Quần âu nam"
-                                                FontSize="25"
-                                                FontWeight="Medium"
-                                                Foreground="#5A4D4C"
-                                                VerticalAlignment="Center"
-                                                HorizontalAlignment="Left"
-                                                Margin="40,20,0,0"/>
-                                    </StackPanel>
-                                </Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="500"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
 
-                                <Grid Grid.Column="1">
-                                    <StackPanel>
-                                        <TextBlock Text="đ129.000"
+                        <Grid Grid.Column="0">
+                            <StackPanel>
+                                <TextBlock Text="Tổng tiền hàng"
                                                 FontSize="25"
                                                 FontWeight="Medium"
                                                 Foreground="#5A4D4C"
                                                 VerticalAlignment="Center"
                                                 HorizontalAlignment="Left"
                                                 Margin="40,20,0,0"/>
-                                        <TextBlock Text="đ169.000"
+                                <TextBlock Text="Phí vận chuyển"
                                                 FontSize="25"
                                                 FontWeight="Medium"
                                                 Foreground="#5A4D4C"
                                                 VerticalAlignment="Center"
                                                 HorizontalAlignment="Left"
                                                 Margin="40,20,0,0"/>
-                                        <TextBlock Text="đ329.000"
+                                <TextBlock Text="Thành tiền"
                                                 FontSize="25"
                                                 FontWeight="Medium"
                                                 Foreground="#5A4D4C"
                                                 VerticalAlignment="Center"
                                                 HorizontalAlignment="Left"
                                                 Margin="40,20,0,0"/>
-                                    </StackPanel>
-                                </Grid>
-                            </Grid>
+                            </StackPanel>
                         </Grid>
-
-                        <Grid Grid.Row="1">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="500"/>
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-
-                                <Grid Grid.Column="0">
-                                    <StackPanel>
-                                        <TextBlock Text="Tổng tiền hàng"
+                        
+                        <Grid Grid.Column="1">
+                            <StackPanel>
+                                <TextBlock Text="đ627.000"
                                                 FontSize="25"
                                                 FontWeight="Medium"
                                                 Foreground="#5A4D4C"
                                                 VerticalAlignment="Center"
                                                 HorizontalAlignment="Left"
                                                 Margin="40,20,0,0"/>
-                                        <TextBlock Text="Phí vận chuyển"
+                                <TextBlock Text="đ15.000"
                                                 FontSize="25"
                                                 FontWeight="Medium"
                                                 Foreground="#5A4D4C"
                                                 VerticalAlignment="Center"
                                                 HorizontalAlignment="Left"
                                                 Margin="40,20,0,0"/>
-                                        <TextBlock Text="Thành tiền"
+                                <TextBlock Text="đ642.000"
                                                 FontSize="25"
                                                 FontWeight="Medium"
                                                 Foreground="#5A4D4C"
                                                 VerticalAlignment="Center"
                                                 HorizontalAlignment="Left"
                                                 Margin="40,20,0,0"/>
-                                    </StackPanel>
-                                </Grid>
-                                <Grid Grid.Column="1">
-                                    <StackPanel>
-                                        <TextBlock Text="đ627.000"
-                                                FontSize="25"
-                                                FontWeight="Medium"
-                                                Foreground="#5A4D4C"
-                                                VerticalAlignment="Center"
-                                                HorizontalAlignment="Left"
-                                                Margin="40,20,0,0"/>
-                                        <TextBlock Text="đ15.000"
-                                                FontSize="25"
-                                                FontWeight="Medium"
-                                                Foreground="#5A4D4C"
-                                                VerticalAlignment="Center"
-                                                HorizontalAlignment="Left"
-                                                Margin="40,20,0,0"/>
-                                        <TextBlock Text="đ642.000"
-                                                FontSize="25"
-                                                FontWeight="Medium"
-                                                Foreground="#5A4D4C"
-                                                VerticalAlignment="Center"
-                                                HorizontalAlignment="Left"
-                                                Margin="40,20,0,0"/>
-                                    </StackPanel>
-                                </Grid>
-                            </Grid>
-
+                            </StackPanel>
                         </Grid>
                     </Grid>
                 </Border>
