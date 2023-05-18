@@ -116,31 +116,30 @@
                 <lvc:CartesianChart Series="{Binding SeriesCollection}"
                                     LegendLocation="Bottom">
                     <lvc:CartesianChart.AxisX>
-                        <lvc:Axis Title="Tháng" Labels="{Binding Labels}" Margin="0,0,0,10">
+                        <lvc:Axis Title="Tháng" Labels="{Binding Labels}" MaxWidth="20" FontSize="8" Margin="0,0,0,10">
                             <lvc:Axis.Separator>
-                                <lvc:Separator Stroke="Transparent" Step="0"/>
+                                <lvc:Separator Stroke="Transparent" Step="10"/>
                             </lvc:Axis.Separator>
                         </lvc:Axis>
                     </lvc:CartesianChart.AxisX>
 
                     <lvc:CartesianChart.AxisY>
                         <!--Trục Y bên trái-->
-                        <lvc:Axis Title="Tiền (triệu đồng)" Position="LeftBottom" Margin="20,20,20,20" >
+                        <lvc:Axis Title="Tiền (triệu đồng)" Position="LeftBottom"  >
                             <lvc:Axis.Separator>
-                                <lvc:Separator Stroke="Transparent" StrokeThickness="0" />
+                                <lvc:Separator Stroke="Transparent"  />
                             </lvc:Axis.Separator>
                         </lvc:Axis>
 
                         <!--Trục Y bên phải-->
-                        <lvc:Axis Title="Đơn hàng (triệu đơn)"  Position="RightTop" Margin="20,20,20,20">
+                        <lvc:Axis Title="Đơn hàng (triệu đơn)"  Position="RightTop">
                             <lvc:Axis.Separator>
-                                <lvc:Separator Stroke="Transparent" StrokeThickness="0"/>
+                                <lvc:Separator Stroke="Transparent" />
                             </lvc:Axis.Separator>
                         </lvc:Axis>
                     </lvc:CartesianChart.AxisY>
                 </lvc:CartesianChart>
             </Grid>
-
             <Grid Grid.Row="2">
                 <Border CornerRadius="20"
                         Background="#1ECFD6"
@@ -190,7 +189,6 @@
                             </StackPanel>
                         </Grid>
                     </Grid>
-
                 </Border>
             </Grid>
         </Grid>

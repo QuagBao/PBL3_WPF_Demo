@@ -76,3 +76,7 @@ D:\Bao\PBL3_Demo\Demo1\bin\Debug\LiveCharts.pdb
 D:\Bao\PBL3_Demo\Demo1\bin\Debug\LiveCharts.xml
 D:\Bao\PBL3_Demo\Demo1\bin\Debug\LiveCharts.Wpf.pdb
 D:\Bao\PBL3_Demo\Demo1\bin\Debug\LiveCharts.Wpf.xml
+D:\Bao\PBL3_Demo\Demo1\obj\Debug\View\OderTracking.g.cs
+D:\Bao\PBL3_Demo\Demo1\obj\Debug\View\OderTracking.baml
+D:\Bao\PBL3_Demo\Demo1\obj\Debug\View\RouteParcel.g.cs
+D:\Bao\PBL3_Demo\Demo1\obj\Debug\View\RouteParcel.baml

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Bao\PBL3_Demo\Demo1\App.xaml
-141939167122
+16-1473458191
 2739969757
-39-2043390576
+411149044753
 34912288203
-View\AddFuncView.xaml;View\Invoice.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;ResourceXAML\MainResource.xaml;View\ResultOfSearch.xaml;View\ResultOfUpdateStatusParcel.xaml;View\SearchParcel.xaml;Styles\ButtonStyles.xaml;Styles\ScrollViewer.xaml;Styles\UIColors.xaml;View\StatisticsView.xaml;View\UpdateStatusParcelView.xaml;View\Window1.xaml;
+View\AddFuncView.xaml;View\Invoice.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;ResourceXAML\MainResource.xaml;View\OderTracking.xaml;View\ResultOfSearch.xaml;View\ResultOfUpdateStatusParcel.xaml;View\RouteParcel.xaml;View\SearchParcel.xaml;Styles\ButtonStyles.xaml;Styles\ScrollViewer.xaml;Styles\UIColors.xaml;View\StatisticsView.xaml;View\UpdateStatusParcelView.xaml;View\Window1.xaml;
 
 False
 

@@ -38,7 +38,7 @@
                                        FontSize="30" BorderThickness="0"
                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                        Text="{Binding SearchText}" 
-                                       Foreground="#5A4D4C" Width="400" Height="70" />
+                                       Foreground="#5A4D4C" Width="350" Height="70" />
                         </StackPanel>
                     </Border>
                 </Grid>
