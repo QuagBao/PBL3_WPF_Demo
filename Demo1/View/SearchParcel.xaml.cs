@@ -24,5 +24,13 @@ namespace Demo1
         {
             InitializeComponent();
         }
+
+        //private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    ResultOfSearch r = new ResultOfSearch();
+        //    r.ShowDialog(); 
+
+
+        //}
     }
 }

@@ -13,10 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Demo1.View
+namespace Demo1
 {
     /// <summary>
-    /// Interaction logic for ResultOfUpdateStatusParcel.xaml
+    /// Interaction logic for AddFuncView.xaml
     /// </summary>
     public partial class ResultOfUpdateStatusParcel : UserControl
     {

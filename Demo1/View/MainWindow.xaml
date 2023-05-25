@@ -29,8 +29,14 @@
         <DataTemplate DataType="{x:Type viewModel:SearchParcelModel}">
             <local:SearchParcel/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:UpdateParcelModel}">
+            <local:ResultOfUpdateStatusParcel/>
+        </DataTemplate>
         <DataTemplate DataType="{x:Type viewModel:Window1Model}">
             <local:Window1/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:OrderTrackingModel}">
+            <local:OrderTracking/>
         </DataTemplate>
     </Window.Resources>
 
@@ -84,7 +90,7 @@
                                      IsChecked="True"
                                      
                                      
-                                     Command="{Binding ShowAddWindowCommand}">
+                                    >
                         
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="CirclePlus"
@@ -108,8 +114,10 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color1}"
                                      IsChecked="True"
-                                     Visibility="{Binding IsRole2Or3AllowedToVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                     Command="{Binding ShowSearchWindowCommand}">
+                                     Command="{Binding ShowUpdateParcelCommand}"
+                        Visibility="{Binding Role23, Converter={StaticResource BooleanToVisibilityConverter}}">
+
+
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Minus" 
                                               Height="30" Width="30"
@@ -121,7 +129,7 @@
                                     Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color1}"
                                      IsChecked="True"
-                                     Command="{Binding ShowHomeViewCommand}">
+                                    >
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="MapLocation" 
                                               Height="30" Width="30"
@@ -132,7 +140,7 @@
                     <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color1}"
                                      IsChecked="True"
-                                     Command="{Binding ShowWindow1Command}">
+                                     Command="{Binding ShowOrderTrackingCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Minus" 
                                               Height="30" Width="30"
@@ -173,9 +181,12 @@
 
             <!--Main Section-->
             <Border CornerRadius="0,10,10,0"
-                    Grid.Column="1"
-                    Background="#72A2C0">
-
+                    Grid.Column="1">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="1,0.7" EndPoint="0,0">
+                        <GradientStop Color="#72A2C0" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
                 <Grid>
                     <Grid.RowDefinitions>
                         <!--Control Bar-->

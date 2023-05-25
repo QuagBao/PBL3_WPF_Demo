@@ -10,19 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Demo1.View
+namespace Demo1
 {
     /// <summary>
     /// Interaction logic for ResultOfSearch.xaml
     /// </summary>
-    public partial class ResultOfSearch : UserControl
+    public partial class ResultOfSearch : Window
     {
-        public ResultOfSearch()
+        public ResultOfSearch(string _parcelID)
         {
-            
+            InitializeComponent();
         }
     }
 }
