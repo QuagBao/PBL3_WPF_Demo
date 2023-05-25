@@ -6,15 +6,14 @@
              xmlns:local="clr-namespace:Demo1.View"
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="1000">
+             d:DesignHeight="700" d:DesignWidth="1000">
     <Border CornerRadius="20"
             Background="#8A8683">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="200"/>
-                <RowDefinition Height="400"/>
+                <RowDefinition Height="200"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
@@ -56,7 +55,7 @@
                                            HorizontalAlignment="Center"
                                            Foreground="#5A4D4C"
                                            Margin="-280 0 0 10"/>
-
+                                
                                 <TextBlock Text="+25%"
                                            FontSize="20"
                                            Width="Auto" Height="Auto"
@@ -64,7 +63,7 @@
                                            HorizontalAlignment="Center"
                                            Foreground="#5A4D4C"
                                            Margin="-550 0 0 10"/>
-
+                                
                             </StackPanel>
                         </Grid>
 
@@ -112,34 +111,6 @@
                 </Border>
             </Grid>
 
-            <Grid Grid.Row="1">
-                <lvc:CartesianChart Series="{Binding SeriesCollection}"
-                                    LegendLocation="Bottom">
-                    <lvc:CartesianChart.AxisX>
-                        <lvc:Axis Title="Tháng" Labels="{Binding Labels}" MaxWidth="20" FontSize="8" Margin="0,0,0,10">
-                            <lvc:Axis.Separator>
-                                <lvc:Separator Stroke="Transparent" Step="10"/>
-                            </lvc:Axis.Separator>
-                        </lvc:Axis>
-                    </lvc:CartesianChart.AxisX>
-
-                    <lvc:CartesianChart.AxisY>
-                        <!--Trục Y bên trái-->
-                        <lvc:Axis Title="Tiền (triệu đồng)" Position="LeftBottom"  >
-                            <lvc:Axis.Separator>
-                                <lvc:Separator Stroke="Transparent"  />
-                            </lvc:Axis.Separator>
-                        </lvc:Axis>
-
-                        <!--Trục Y bên phải-->
-                        <lvc:Axis Title="Đơn hàng (triệu đơn)"  Position="RightTop">
-                            <lvc:Axis.Separator>
-                                <lvc:Separator Stroke="Transparent" />
-                            </lvc:Axis.Separator>
-                        </lvc:Axis>
-                    </lvc:CartesianChart.AxisY>
-                </lvc:CartesianChart>
-            </Grid>
             <Grid Grid.Row="2">
                 <Border CornerRadius="20"
                         Background="#1ECFD6"
@@ -186,9 +157,10 @@
                                         FontSize="20" materialDesign:ButtonAssist.CornerRadius="22" 
                                         Height="45" Width="150"
                                         Margin="15,0,0,0"/>
-                            </StackPanel>
+                            </StackPanel>                            
                         </Grid>
                     </Grid>
+                    
                 </Border>
             </Grid>
         </Grid>

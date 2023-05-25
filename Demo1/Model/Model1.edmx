@@ -20,7 +20,7 @@
           <Property Name="accountName" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="accountPassword" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="accessRightID" Type="int" Nullable="false" />
-          <Property Name="salt" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Salt" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -49,14 +49,16 @@
           <Property Name="parcelName" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="parcelMass" Type="float" Nullable="false" />
           <Property Name="parcelSize" Type="nvarchar" MaxLength="200" Nullable="false" />
-          <Property Name="parcelValue" Type="float" Nullable="false" />
-          <Property Name="createTime" Type="datetime" />
+          <Property Name="parcelValue" Type="float" />
+          <Property Name="createTime" Type="datetime" Nullable="false" />
           <Property Name="RCustomerID" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="SCustomerID" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="type" Type="bit" />
           <Property Name="shippingMethod" Type="bit" Nullable="false" />
           <Property Name="parcelStatus" Type="bit" />
           <Property Name="isCOD" Type="bit" />
+          <Property Name="currentWarehouseID" Type="nvarchar" MaxLength="200" />
+          <Property Name="isFinalWarehouse" Type="bit" />
         </EntityType>
         <EntityType Name="Receptionist">
           <Key>
@@ -72,9 +74,9 @@
           <Key>
             <PropertyRef Name="routeID" />
           </Key>
-          <Property Name="routeID" Type="int" Nullable="false" />
+          <Property Name="routeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="parcelID" Type="int" Nullable="false" />
-          <Property Name="fromWarehouseID" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="relatedWarehouseID" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="details" Type="nvarchar" MaxLength="200" />
           <Property Name="time" Type="datetime" Nullable="false" />
         </EntityType>
@@ -178,7 +180,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Receptionist_Warehouse">
+        <Association Name="FK_Receptionist_Warehouse1">
           <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
           <End Role="Receptionist" Type="Self.Receptionist" Multiplicity="*" />
           <ReferentialConstraint>
@@ -186,7 +188,7 @@
               <PropertyRef Name="warehouseID" />
             </Principal>
             <Dependent Role="Receptionist">
-              <PropertyRef Name="receptionistName" />
+              <PropertyRef Name="warehouseID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -210,7 +212,7 @@
               <PropertyRef Name="warehouseID" />
             </Principal>
             <Dependent Role="Route">
-              <PropertyRef Name="fromWarehouseID" />
+              <PropertyRef Name="relatedWarehouseID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -282,7 +284,7 @@
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Parcel" EntitySet="Parcel" />
           </AssociationSet>
-          <AssociationSet Name="FK_Receptionist_Warehouse" Association="Self.FK_Receptionist_Warehouse">
+          <AssociationSet Name="FK_Receptionist_Warehouse1" Association="Self.FK_Receptionist_Warehouse1">
             <End Role="Warehouse" EntitySet="Warehouse" />
             <End Role="Receptionist" EntitySet="Receptionist" />
           </AssociationSet>
@@ -317,7 +319,18 @@
           </Key>
           <Property Name="accessRightID" Type="Int32" Nullable="false" />
           <Property Name="accessRightName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Accounts" Relationship="PBL3_demoModel.FK_Account_AccessRight" FromRole="AccessRight" ToRole="Account" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_Account_AccessRight" FromRole="AccessRight" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="accountID" />
+          </Key>
+          <Property Name="accountID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="accountName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="accountPassword" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="accessRightID" Type="Int32" Nullable="false" />
+          <Property Name="Salt" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AccessRight" Relationship="Self.FK_Account_AccessRight" FromRole="Account" ToRole="AccessRight" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -343,13 +356,24 @@
           <NavigationProperty Name="Customer" Relationship="Self.FK_Invoice_Customer" FromRole="Invoice" ToRole="Customer" />
           <NavigationProperty Name="Parcel" Relationship="PBL3_demoModel.FK_Invoice_Parcel" FromRole="Invoice" ToRole="Parcel" />
         </EntityType>
+        <EntityType Name="Receptionist">
+          <Key>
+            <PropertyRef Name="receptionistID" />
+          </Key>
+          <Property Name="receptionistID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="warehouseID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="receptionistName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="receptionistLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="receptionistPhoneNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Warehouse" Relationship="Self.FK_Receptionist_Warehouse1" FromRole="Receptionist" ToRole="Warehouse" />
+        </EntityType>
         <EntityType Name="Route">
           <Key>
             <PropertyRef Name="routeID" />
           </Key>
-          <Property Name="routeID" Type="Int32" Nullable="false" />
+          <Property Name="routeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="parcelID" Type="Int32" Nullable="false" />
-          <Property Name="fromWarehouseID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="relatedWarehouseID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="details" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Warehouse" Relationship="Self.FK_Route_Warehouse" FromRole="Route" ToRole="Warehouse" />
@@ -374,10 +398,10 @@
           <Property Name="warehouseName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="warehouseAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="capacity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Receptionists" Relationship="Self.FK_Receptionist_Warehouse1" FromRole="Warehouse" ToRole="Receptionist" />
           <NavigationProperty Name="Routes" Relationship="Self.FK_Route_Warehouse" FromRole="Warehouse" ToRole="Route" />
           <NavigationProperty Name="WarehouseManagers" Relationship="Self.FK_WarehouseManager_Warehouse" FromRole="Warehouse" ToRole="WarehouseManager" />
           <NavigationProperty Name="WarehouseStaffs" Relationship="Self.FK_WarehouseStaff_Warehouse" FromRole="Warehouse" ToRole="WarehouseStaff" />
-          <NavigationProperty Name="Receptionists" Relationship="PBL3_demoModel.FK_Receptionist_Warehouse" FromRole="Warehouse" ToRole="Receptionist" />
         </EntityType>
         <EntityType Name="WarehouseManager">
           <Key>
@@ -402,6 +426,18 @@
           <Property Name="warehouseID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Warehouse" Relationship="Self.FK_WarehouseStaff_Warehouse" FromRole="WarehouseStaff" ToRole="Warehouse" />
         </EntityType>
+        <Association Name="FK_Account_AccessRight">
+          <End Role="AccessRight" Type="Self.AccessRight" Multiplicity="1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccessRight">
+              <PropertyRef Name="accessRightID" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="accessRightID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Invoice_Customer">
           <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
           <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
@@ -414,6 +450,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Receptionist_Warehouse1">
+          <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
+          <End Role="Receptionist" Type="Self.Receptionist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Warehouse">
+              <PropertyRef Name="warehouseID" />
+            </Principal>
+            <Dependent Role="Receptionist">
+              <PropertyRef Name="warehouseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Route_Warehouse">
           <End Role="Warehouse" Type="Self.Warehouse" Multiplicity="1" />
           <End Role="Route" Type="Self.Route" Multiplicity="*" />
@@ -422,7 +470,7 @@
               <PropertyRef Name="warehouseID" />
             </Principal>
             <Dependent Role="Route">
-              <PropertyRef Name="fromWarehouseID" />
+              <PropertyRef Name="relatedWarehouseID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -452,16 +500,26 @@
         </Association>
         <EntityContainer Name="PBL3_demoEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AccessRights" EntityType="Self.AccessRight" />
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+          <EntitySet Name="Receptionists" EntityType="Self.Receptionist" />
           <EntitySet Name="Routes" EntityType="Self.Route" />
           <EntitySet Name="ShipFees" EntityType="Self.ShipFee" />
           <EntitySet Name="Warehouses" EntityType="Self.Warehouse" />
           <EntitySet Name="WarehouseManagers" EntityType="Self.WarehouseManager" />
           <EntitySet Name="WarehouseStaffs" EntityType="Self.WarehouseStaff" />
+          <AssociationSet Name="FK_Account_AccessRight" Association="Self.FK_Account_AccessRight">
+            <End Role="AccessRight" EntitySet="AccessRights" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
           <AssociationSet Name="FK_Invoice_Customer" Association="Self.FK_Invoice_Customer">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Invoice" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Receptionist_Warehouse1" Association="Self.FK_Receptionist_Warehouse1">
+            <End Role="Warehouse" EntitySet="Warehouses" />
+            <End Role="Receptionist" EntitySet="Receptionists" />
           </AssociationSet>
           <AssociationSet Name="FK_Route_Warehouse" Association="Self.FK_Route_Warehouse">
             <End Role="Warehouse" EntitySet="Warehouses" />
@@ -496,17 +554,7 @@
             <End Role="Parcel" EntitySet="Parcels" />
             <End Role="ShipFee" EntitySet="ShipFees" />
           </AssociationSet>
-          <EntitySet Name="Receptionists" EntityType="PBL3_demoModel.Receptionist" />
-          <AssociationSet Name="FK_Receptionist_Warehouse" Association="PBL3_demoModel.FK_Receptionist_Warehouse">
-            <End Role="Warehouse" EntitySet="Warehouses" />
-            <End Role="Receptionist" EntitySet="Receptionists" />
-          </AssociationSet>
-          <EntitySet Name="Accounts" EntityType="PBL3_demoModel.Account" />
-          <AssociationSet Name="FK_Account_AccessRight" Association="PBL3_demoModel.FK_Account_AccessRight">
-            <End Role="AccessRight" EntitySet="AccessRights" />
-            <End Role="Account" EntitySet="Accounts" />
-          </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Parcel">
           <Key>
             <PropertyRef Name="parcelID" />
@@ -515,14 +563,16 @@
           <Property Name="parcelName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="parcelMass" Type="Double" Nullable="false" />
           <Property Name="parcelSize" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="parcelValue" Type="Double" Nullable="false" />
-          <Property Name="createTime" Type="DateTime" Precision="3" />
+          <Property Name="parcelValue" Type="Double" />
+          <Property Name="createTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="RCustomerID" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="SCustomerID" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="type" Type="Boolean" />
           <Property Name="shippingMethod" Type="Boolean" Nullable="false" />
           <Property Name="parcelStatus" Type="Boolean" />
           <Property Name="isCOD" Type="Boolean" />
+          <Property Name="currentWarehouseID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="isFinalWarehouse" Type="Boolean" />
           <NavigationProperty Name="Customer" Relationship="PBL3_demoModel.FK_Parcel_Customer" FromRole="Parcel" ToRole="Customer" />
           <NavigationProperty Name="Customer1" Relationship="PBL3_demoModel.FK_Parcel_Customer1" FromRole="Parcel" ToRole="Customer" />
           <NavigationProperty Name="Invoices" Relationship="PBL3_demoModel.FK_Invoice_Parcel" FromRole="Parcel" ToRole="Invoice" />
@@ -589,53 +639,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Receptionist">
-          <Key>
-            <PropertyRef Name="receptionistID" />
-          </Key>
-          <Property Name="receptionistID" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="warehouseID" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="receptionistName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="receptionistLocation" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="receptionistPhoneNumber" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Warehouse" Relationship="PBL3_demoModel.FK_Receptionist_Warehouse" FromRole="Receptionist" ToRole="Warehouse" />
-        </EntityType>
-        <Association Name="FK_Receptionist_Warehouse">
-          <End Type="PBL3_demoModel.Warehouse" Role="Warehouse" Multiplicity="1" />
-          <End Type="PBL3_demoModel.Receptionist" Role="Receptionist" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Warehouse">
-              <PropertyRef Name="warehouseID" />
-            </Principal>
-            <Dependent Role="Receptionist">
-              <PropertyRef Name="receptionistName" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Account">
-          <Key>
-            <PropertyRef Name="accountID" />
-          </Key>
-          <Property Name="accountID" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="accountName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="accountPassword" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="accessRightID" Type="Int32" Nullable="false" />
-          <Property Name="salt" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AccessRight" Relationship="PBL3_demoModel.FK_Account_AccessRight" FromRole="Account" ToRole="AccessRight" />
-        </EntityType>
-        <Association Name="FK_Account_AccessRight">
-          <End Type="PBL3_demoModel.AccessRight" Role="AccessRight" Multiplicity="1" />
-          <End Type="PBL3_demoModel.Account" Role="Account" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="AccessRight">
-              <PropertyRef Name="accessRightID" />
-            </Principal>
-            <Dependent Role="Account">
-              <PropertyRef Name="accessRightID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -646,6 +650,17 @@
               <MappingFragment StoreEntitySet="AccessRight">
                 <ScalarProperty Name="accessRightID" ColumnName="accessRightID" />
                 <ScalarProperty Name="accessRightName" ColumnName="accessRightName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="PBL3_demoModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="accountID" ColumnName="accountID" />
+                <ScalarProperty Name="accountName" ColumnName="accountName" />
+                <ScalarProperty Name="accountPassword" ColumnName="accountPassword" />
+                <ScalarProperty Name="accessRightID" ColumnName="accessRightID" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -670,12 +685,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Receptionists">
+            <EntityTypeMapping TypeName="PBL3_demoModel.Receptionist">
+              <MappingFragment StoreEntitySet="Receptionist">
+                <ScalarProperty Name="receptionistID" ColumnName="receptionistID" />
+                <ScalarProperty Name="warehouseID" ColumnName="warehouseID" />
+                <ScalarProperty Name="receptionistName" ColumnName="receptionistName" />
+                <ScalarProperty Name="receptionistLocation" ColumnName="receptionistLocation" />
+                <ScalarProperty Name="receptionistPhoneNumber" ColumnName="receptionistPhoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Routes">
             <EntityTypeMapping TypeName="PBL3_demoModel.Route">
               <MappingFragment StoreEntitySet="Route">
                 <ScalarProperty Name="routeID" ColumnName="routeID" />
                 <ScalarProperty Name="parcelID" ColumnName="parcelID" />
-                <ScalarProperty Name="fromWarehouseID" ColumnName="fromWarehouseID" />
+                <ScalarProperty Name="relatedWarehouseID" ColumnName="relatedWarehouseID" />
                 <ScalarProperty Name="details" ColumnName="details" />
                 <ScalarProperty Name="time" ColumnName="time" />
               </MappingFragment>
@@ -728,6 +754,8 @@
           <EntitySetMapping Name="Parcels">
             <EntityTypeMapping TypeName="PBL3_demoModel.Parcel">
               <MappingFragment StoreEntitySet="Parcel">
+                <ScalarProperty Name="isFinalWarehouse" ColumnName="isFinalWarehouse" />
+                <ScalarProperty Name="currentWarehouseID" ColumnName="currentWarehouseID" />
                 <ScalarProperty Name="isCOD" ColumnName="isCOD" />
                 <ScalarProperty Name="parcelStatus" ColumnName="parcelStatus" />
                 <ScalarProperty Name="shippingMethod" ColumnName="shippingMethod" />
@@ -740,28 +768,6 @@
                 <ScalarProperty Name="parcelMass" ColumnName="parcelMass" />
                 <ScalarProperty Name="parcelName" ColumnName="parcelName" />
                 <ScalarProperty Name="parcelID" ColumnName="parcelID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Receptionists">
-            <EntityTypeMapping TypeName="PBL3_demoModel.Receptionist">
-              <MappingFragment StoreEntitySet="Receptionist">
-                <ScalarProperty Name="receptionistPhoneNumber" ColumnName="receptionistPhoneNumber" />
-                <ScalarProperty Name="receptionistLocation" ColumnName="receptionistLocation" />
-                <ScalarProperty Name="receptionistName" ColumnName="receptionistName" />
-                <ScalarProperty Name="warehouseID" ColumnName="warehouseID" />
-                <ScalarProperty Name="receptionistID" ColumnName="receptionistID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Accounts">
-            <EntityTypeMapping TypeName="PBL3_demoModel.Account">
-              <MappingFragment StoreEntitySet="Account">
-                <ScalarProperty Name="salt" ColumnName="salt" />
-                <ScalarProperty Name="accessRightID" ColumnName="accessRightID" />
-                <ScalarProperty Name="accountPassword" ColumnName="accountPassword" />
-                <ScalarProperty Name="accountName" ColumnName="accountName" />
-                <ScalarProperty Name="accountID" ColumnName="accountID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

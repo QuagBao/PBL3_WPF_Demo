@@ -64,11 +64,8 @@
     <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
-    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
-    </Reference>
-    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
     </Reference>
     <Reference Include="MaterialDesignColors, Version=2.1.2.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.2.1.2\lib\net462\MaterialDesignColors.dll</HintPath>
@@ -126,20 +123,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DTO\SearchResultDTO.cs" />
-    <Compile Include="UserInfo\AccountManager.cs" />
-    <Compile Include="Validation\Validation.cs" />
-    <Compile Include="ViewModel\SearchParcelModel.cs" />
-    <Compile Include="ViewModel\Window1Model.cs" />
-    <Compile Include="View\AddFuncView.xaml.cs">
-      <DependentUpon>AddFuncView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Commands\CommandBase.cs" />
-    <Compile Include="View\Invoice.xaml.cs">
-      <DependentUpon>Invoice.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\LoginWindow.xaml.cs">
-      <DependentUpon>LoginWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Model\AccessRight.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -188,8 +171,25 @@
     <Compile Include="Model\WarehouseStaff.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="View\OderTracking.xaml.cs">
-      <DependentUpon>OderTracking.xaml</DependentUpon>
+    <Compile Include="UserInfo\AccountManager.cs" />
+    <Compile Include="DateTimeToEmptyStringConverter.cs" />
+    <Compile Include="Validation\Validation.cs" />
+    <Compile Include="ViewModel\OrderTrackingModel.cs" />
+    <Compile Include="ViewModel\SearchParcelModel.cs" />
+    <Compile Include="ViewModel\UpdateParcelModel.cs" />
+    <Compile Include="ViewModel\Window1Model.cs" />
+    <Compile Include="View\AddFuncView.xaml.cs">
+      <DependentUpon>AddFuncView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="View\Invoice.xaml.cs">
+      <DependentUpon>Invoice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OrderTracking.xaml.cs">
+      <DependentUpon>OrderTracking.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ResultOfSearch.xaml.cs">
       <DependentUpon>ResultOfSearch.xaml</DependentUpon>
@@ -245,7 +245,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\OderTracking.xaml">
+    <Page Include="View\OrderTracking.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

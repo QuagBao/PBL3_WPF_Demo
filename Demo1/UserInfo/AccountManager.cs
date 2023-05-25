@@ -37,7 +37,7 @@ namespace Demo1.UserInfo
             
        
         }
-    public static AccountManager Instance
+        public static AccountManager Instance
         {
             get
             {

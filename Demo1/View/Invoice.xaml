@@ -51,13 +51,18 @@
                         <Border Background="#62D6F5"
                             BorderThickness="0,0,0,3">
                             <StackPanel>
-                                <TextBox   
+                                <TextBlock   
                                        FontSize="20" 
                                       
                                        Text="Mã bưu điện"
                                       
                                        Foreground="#0A003A" Width="120" Height="54"/>
-
+                                <TextBlock   
+                                       FontSize="20" 
+                                      
+                                       Text="{Binding WarehouseID}"
+                                      
+                                       Foreground="#0A003A" Width="120" Height="54"/>
 
                             </StackPanel>
                         </Border>
