@@ -18,7 +18,7 @@ namespace Demo1.Model
         public string accountName { get; set; }
         public string accountPassword { get; set; }
         public int accessRightID { get; set; }
-        public string salt { get; set; }
+        public string Salt { get; set; }
     
         public virtual AccessRight AccessRight { get; set; }
     }

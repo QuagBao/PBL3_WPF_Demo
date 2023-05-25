@@ -26,14 +26,16 @@ namespace Demo1.Model
         public string parcelName { get; set; }
         public double parcelMass { get; set; }
         public string parcelSize { get; set; }
-        public double parcelValue { get; set; }
-        public Nullable<System.DateTime> createTime { get; set; }
+        public Nullable<double> parcelValue { get; set; }
+        public System.DateTime createTime { get; set; }
         public string RCustomerID { get; set; }
         public string SCustomerID { get; set; }
         public Nullable<bool> type { get; set; }
         public bool shippingMethod { get; set; }
         public Nullable<bool> parcelStatus { get; set; }
         public Nullable<bool> isCOD { get; set; }
+        public string currentWarehouseID { get; set; }
+        public Nullable<bool> isFinalWarehouse { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Customer Customer1 { get; set; }

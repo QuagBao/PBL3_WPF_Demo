@@ -1,4 +1,5 @@
 ﻿using Demo1.Model;
+using Demo1.UserInfo;
 using Prism.Commands;
 using System;
 using System.Collections.Generic;
@@ -59,6 +60,8 @@ namespace Demo1.ViewModel
         private bool _isFast;
         private bool _isSlow;
         private bool _isCOD;
+        //
+        private string _warehouseID;
 
 
         public ICommand CreateInvoiceCommand { get; set; }
@@ -74,6 +77,18 @@ namespace Demo1.ViewModel
             set
             {
                 _ShippingMethod = value;
+                OnPropertyChanged();
+            }
+        }
+        public string WarehouseID
+        {
+            get
+            {
+                return _warehouseID;
+            }
+            set
+            {
+                _warehouseID = value;
                 OnPropertyChanged();
             }
         }
@@ -503,6 +518,8 @@ namespace Demo1.ViewModel
             }
         }
 
+
+        // if it is slow shipping -> false , fast  shipping -> true
         public bool isSlow
         {
             get { return _isSlow; }
@@ -534,6 +551,9 @@ namespace Demo1.ViewModel
 
         public AddFunctionModel()
         {
+            string accountID = AccountManager.Instance.GetAccountID();
+            WarehouseID = AccountManager.Instance.GetUserWarehouseID(accountID);
+
             void ResetData()
             {
                 SCustomerName = "";
@@ -607,14 +627,21 @@ namespace Demo1.ViewModel
                 }
                     context.SaveChanges();
                    
-                }
+            }
+                 
                 using (var context1 = new Model.PBL3_demoEntities())
                 {
-                      var lastRow = context1.Parcels.OrderByDescending(x => x.parcelID).FirstOrDefault();
+                    var lastRow = context1.Parcels.OrderByDescending(x => x.parcelID).FirstOrDefault();
                     ParcelID = Convert.ToString(Convert.ToInt32(lastRow.parcelID)+ 1);
-                    var newParcel = new Parcel { parcelID = Convert.ToInt32(ParcelID), parcelName = ParcelName, parcelMass = Convert.ToDouble(ParcelMass), parcelSize = ParcelLength + " x "+ParcelWidth+" x "+ParcelHeight, parcelValue = Convert.ToDouble(ParcelValue), type = isSpec, RCustomerID = RCustomerID, SCustomerID = SCustomerID, shippingMethod = isSlow, isCOD = isCOD};
+                    var newParcel = new Parcel { parcelID = Convert.ToInt32(ParcelID), parcelName = ParcelName, parcelMass = Convert.ToDouble(ParcelMass), parcelSize = ParcelLength + " x "+ParcelWidth+" x "+ParcelHeight, parcelValue = Convert.ToDouble(ParcelValue), type = isSpec, RCustomerID = RCustomerID, SCustomerID = SCustomerID, shippingMethod = isFast, isCOD = isCOD,createTime=DateTime.Now,currentWarehouseID=WarehouseID};
                     context1.Parcels.Add(newParcel);
                     context1.SaveChanges();
+                }
+                using (var context = new Model.PBL3_demoEntities())
+                {
+                    var newRoute = new Route {parcelID= Convert.ToInt32(ParcelID),relatedWarehouseID=WarehouseID,time=DateTime.Now,details="Đơn hàng đã được khởi tạo"};
+                    context.Routes.Add(newRoute);
+                    context.SaveChanges();
                 }
             });
 
@@ -637,15 +664,15 @@ namespace Demo1.ViewModel
 
               
                 double number, number1, number2, number3, number4;
-                int number5, number6;
+                double number5, number6;
                 ////con valid sdt chua lam
                 bool isNumeric = double.TryParse(ParcelValue, out number);
                 bool isNumeric1 = double.TryParse(ParcelMass, out number1);
                 bool isNumeric2 = double.TryParse(ParcelHeight, out number2);
                 bool isNumeric3 = double.TryParse(ParcelWidth, out number3);
                 bool isNumeric4 = double.TryParse(ParcelLength, out number4);
-                bool isNumeric5 = int.TryParse(RCustomerID, out number5);
-                bool isNumeric6 = int.TryParse(SCustomerID, out number6);
+                bool isNumeric5 = double.TryParse(RCustomerID, out number5);
+                bool isNumeric6 = double.TryParse(SCustomerID, out number6);
                 if (isNumeric&&isNumeric1&&isNumeric2&&isNumeric3&&isNumeric4&&isNumeric5&&isNumeric6)
                 {
                     isValid = 1;

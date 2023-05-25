@@ -6,10 +6,11 @@
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
+             DataContext="{StaticResource SearchPM}"
              d:DesignHeight="643" Width="960">
     
     <Border CornerRadius="20"
-            Background="#8A8683">
+            Background="Black">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
@@ -33,12 +34,12 @@
                                       Style="{StaticResource menuButtonIcon}"
                                       Foreground="#5A4D4C"/>
                             <TextBox   materialDesign:HintAssist.Hint="Nhập mã đơn hàng"
-                                       materialDesign:HintAssist.FloatingScale="0"
-                                       materialDesign:HintAssist.Foreground="Blue"
-                                       FontSize="30" BorderThickness="0"
-                                       Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                                       Text="{Binding SearchText}" 
-                                       Foreground="#5A4D4C" Width="350" Height="70" />
+                                   materialDesign:HintAssist.FloatingScale="0"
+                                   materialDesign:HintAssist.Foreground="Blue"
+                                   FontSize="30" 
+                                   Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                   Text="{Binding SearchText}" 
+                                   Foreground="#5A4D4C" Width="400" Height="70" />
                         </StackPanel>
                     </Border>
                 </Grid>
@@ -84,10 +85,20 @@
                             </Grid>
                             <Grid Grid.Row="1">
                                 <Border Background="#8ED3F4"
+                                        
                                         BorderThickness= "0,3,3,0"
                                         CornerRadius="0,0,0,20">
                                     <Grid>
-
+                                        <TextBlock Text ="{Binding ParcelName}"
+                                                   FontSize="25"
+                                                   HorizontalAlignment="Center"
+                                                   Foreground="Black">
+                                                   <!--MouseLeftButtonDown="TextBlock_MouseLeftButtonDown"-->
+                                               
+                                            <TextBlock.InputBindings>
+                                                <MouseBinding Command="{Binding ParcelNameClickCommand}" MouseAction="LeftClick" />
+                                            </TextBlock.InputBindings>
+                                        </TextBlock>
                                     </Grid>
                                 </Border>
                             </Grid>
@@ -115,6 +126,8 @@
 
                                     <Grid>
                                         <TextBlock Text ="{Binding ParcelType}"
+                                                   FontSize="21"
+                                                   HorizontalAlignment="Center"
                                                Foreground="Black"></TextBlock>
                                     </Grid>
                                 </Border>
@@ -143,6 +156,8 @@
 
                                     <Grid>
                                         <TextBlock Text ="{Binding ParcelValue }"
+                                                   FontSize="25"
+                                                   HorizontalAlignment="Center"
                                                Foreground="Black"></TextBlock>
                                     </Grid>
                                 </Border>
