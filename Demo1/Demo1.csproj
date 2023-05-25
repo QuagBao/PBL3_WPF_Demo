@@ -173,6 +173,7 @@
     </Compile>
     <Compile Include="UserInfo\AccountManager.cs" />
     <Compile Include="DateTimeToEmptyStringConverter.cs" />
+    <Compile Include="UserInfo\ParcelInfo.cs" />
     <Compile Include="Validation\Validation.cs" />
     <Compile Include="ViewModel\OrderTrackingModel.cs" />
     <Compile Include="ViewModel\SearchParcelModel.cs" />

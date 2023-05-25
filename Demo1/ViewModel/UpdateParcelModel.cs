@@ -100,7 +100,7 @@ namespace Demo1.ViewModel
                 {
                     parcelID = value;
                     OnPropertyChanged();
-                    ValidateParcelID();
+                    ValidateParcelID(true);
                 }
             }
         }
@@ -170,27 +170,42 @@ namespace Demo1.ViewModel
         }
 
 
-        void ValidateParcelID()
+        int ValidateParcelID(bool isShowErrorMessage)
         {
             int parcelID;
-            if (int.TryParse(ParcelID, out parcelID))
-            {
-                // Chuỗi chứa số nguyên hợp lệ
-                using (var context = new PBL3_demoEntities())
-                {
-                    var thisParcel = context.Parcels.Where(x => x.parcelID == parcelID).FirstOrDefault();
-                    if (thisParcel == null)
-                    {
-                        MessageBox.Show("Đơn này không tồn tại trong hệ thống");
-                    }
-                }
-            }
-            else
+            bool isValid = int.TryParse(ParcelID, out parcelID);
+
+            if (!isValid)
             {
                 // Chuỗi không chứa số nguyên hợp lệ
-                MessageBox.Show("Mã đơn hàng vừa nhập không hợp lệ");
+                if (isShowErrorMessage)
+                {
+                    ShowErrorMessage("Mã đơn hàng vừa nhập không hợp lệ");
+                }
+
+                return parcelID;
             }
+
+            var thisParcel = ParcelInfo.Instance.GetParcelRecord(parcelID);
+            if (thisParcel == null && isShowErrorMessage)
+            {
+                ShowErrorMessage("Đơn hàng không tồn tại trong hệ thống! Xin vui lòng thử lại");
+            }
+
+
+            return parcelID;
         }
+
+
+        void ShowErrorMessage(string message)
+        {
+            // Hiển thị thông báo lỗi theo cơ chế thông báo của WPF (ví dụ: Validation.ErrorTemplate)
+            // Hoặc thực hiện xử lý hiển thị thông báo lỗi khác trong giao diện WPF
+            // Ví dụ: gán thông báo lỗi vào một thuộc tính và sử dụng Binding để hiển thị thông báo đó trong giao diện WPF
+            // Hoặc sử dụng một cơ chế thông báo tương tự trong thư viện MVVM
+            MessageBox.Show(message);
+        }
+
 
 
         public ICommand ShowParcelInfoCommand { get; set; }
@@ -232,18 +247,6 @@ namespace Demo1.ViewModel
 
         }
 
-        public Parcel GetParcelRecord()
-        {
-
-            int parcelID = Convert.ToInt32(ParcelID);
-            using (var context = new PBL3_demoEntities())
-            {
-                var thisParcel = context.Parcels.Where(x => x.parcelID == parcelID).FirstOrDefault();
-                return thisParcel;
-
-
-            }
-        }
         // check the validation of the ParcelID
 
 
@@ -252,15 +255,15 @@ namespace Demo1.ViewModel
         //tim tinh trang cuoi cung cua don hang phuc vu cho ham GetParcelInfo
         public string LastStatus()
         {
-            int iParcelID = Convert.ToInt32(ParcelID);
+            int parcelID = ValidateParcelID(false);
             using (var Context = new PBL3_demoEntities())
             {
                 //TH mới tạo đơn chưa nhập vào kho
-                var checkifparcelexist = Context.Routes.FirstOrDefault(p => p.parcelID == iParcelID);
+                var checkifparcelexist = Context.Routes.FirstOrDefault(p => p.parcelID == parcelID);
                 if (checkifparcelexist != null)
                 {
                     int maxId = Context.Routes
-                   .Where(x => x.parcelID == iParcelID)
+                   .Where(x => x.parcelID == parcelID)
                    .Max(x => x.routeID);
 
                     // Sử dụng giá trị maxId ở đây
@@ -281,31 +284,27 @@ namespace Demo1.ViewModel
         }
         public void GetParcelInfo()
         {
-
-            using (var context = new PBL3_demoEntities())
+            int parcelID = ValidateParcelID(false);
+            var getInfo = ParcelInfo.Instance.GetParcelRecord(parcelID);
+            if (getInfo != null)
             {
-                int iParcelID = Convert.ToInt32(ParcelID);
-                var getInfo = context.Parcels.FirstOrDefault(x => x.parcelID == iParcelID);
-                if (getInfo != null)
-                {
-                    CreateTime = (DateTime)getInfo.createTime;
-                    if (getInfo.shippingMethod) ShippingMethod = "Nhanh";
-                    else ShippingMethod = "Chậm";
-                    Status = LastStatus();
-                }
-                else
-                {
-                    MessageBox.Show("Đơn hàng không tồn tại!");
-                }
-
+                CreateTime = (DateTime)getInfo.createTime;
+                if (getInfo.shippingMethod) ShippingMethod = "Nhanh";
+                else ShippingMethod = "Chậm";
+                Status = LastStatus();
             }
+            else
+            {
+                MessageBox.Show("Đơn hàng không tồn tại!");
+            }
+
         }
 
 
         // check if the warehouseID of this parcelID is equal with the warehouseID of this account
         bool CheckIDParcel(string _parcelID)
         {
-            int parcelID = int.Parse(_parcelID);
+            int parcelID = ValidateParcelID(false);
             string thisWarehouseID = WarehouseID;
             bool check;
             using (var context = new PBL3_demoEntities())
@@ -326,7 +325,7 @@ namespace Demo1.ViewModel
         {
             if (CheckIDParcel(ParcelID))
             {
-                int parcelID = int.Parse(ParcelID);
+                int parcelID = ValidateParcelID(false);
                 using (var context = new PBL3_demoEntities())
                 {
                     var thisParcel = context.Parcels.Where(x => x.parcelID == parcelID).FirstOrDefault();
@@ -369,7 +368,7 @@ namespace Demo1.ViewModel
         {
             using (var context = new PBL3_demoEntities())
             {
-                int parcelID = int.Parse(ParcelID);
+                int parcelID = ValidateParcelID(false);
                 var thisParcel = context.Parcels.Where(x => x.parcelID == parcelID).FirstOrDefault();
                 string thisWarehouseID = WarehouseID;
                 string thisWarehouseName = context.Warehouses.Where(x => x.warehouseID == thisWarehouseID)
@@ -408,7 +407,7 @@ namespace Demo1.ViewModel
                                 thisParcel.isFinalWarehouse = CheckFinalWarehouse();
                                 if (thisParcel.isFinalWarehouse == true)
                                 {
-                                    MessageBox.Show("Tới kho đích rồiii");
+                                    MessageBox.Show("Đơn hàng đã tới kho đích");
                                     details = "Nhập đơn hàng vào kho đích tại " + thisWarehouseName;
                                     //FinalWarehouseDetail = "Đơn hàng đã đến đích";
                                 }
@@ -466,7 +465,7 @@ namespace Demo1.ViewModel
         ObservableCollection<string> ParcelRoute()
         {
             RouteCollection = new ObservableCollection<string>();
-            int parcelID = int.Parse(ParcelID);
+            int parcelID = ValidateParcelID(false);
             ObservableCollection<string> parcelRoutes = new ObservableCollection<string>();
             using (var context = new PBL3_demoEntities())
             {
@@ -504,7 +503,7 @@ namespace Demo1.ViewModel
         bool CheckFinalWarehouse()
         {
             bool finalWarehouseCheck = true;
-            int parcelID = int.Parse(ParcelID);
+            int parcelID = ValidateParcelID(false);
             using (var context = new PBL3_demoEntities())
             {
                 var thisParcel = context.Parcels.Where(x => x.parcelID == parcelID).FirstOrDefault();
@@ -543,7 +542,7 @@ namespace Demo1.ViewModel
 
         void AddSuccessDeliveryIntoRoutes()
         {
-            int parcelID = int.Parse(ParcelID);
+            int parcelID = ValidateParcelID(false);
             using (var context = new PBL3_demoEntities())
             {
                 var thisParcel = context.Parcels.Where(x => x.parcelID == parcelID).FirstOrDefault();
@@ -571,7 +570,7 @@ namespace Demo1.ViewModel
 
         void AddFailDeliveryIntoRoutes()
         {
-            int parcelID = int.Parse(ParcelID);
+            int parcelID = ValidateParcelID(false);
             using (var context = new PBL3_demoEntities())
             {
                 var thisParcel = context.Parcels.Where(x => x.parcelID == parcelID).FirstOrDefault();
@@ -597,7 +596,7 @@ namespace Demo1.ViewModel
         }
         bool CanExcuteFinalRouteCommand()
         {
-            int parcelID = int.Parse(ParcelID);
+            int parcelID = ValidateParcelID(false);
             bool _canexecute = false;
             string thisWarehouseID = WarehouseID;
             using (var context = new PBL3_demoEntities())
@@ -660,41 +659,37 @@ namespace Demo1.ViewModel
         // check if you have delivery fail three times 
         bool isThreeTimeDeliveryFail()
         {
-            int parcelID = int.Parse(ParcelID);
+            int parcelID = ValidateParcelID(false);
             using (var context = new PBL3_demoEntities())
             {
-                var thisParcel = context.Parcels.Where(x => x.parcelID == parcelID).FirstOrDefault();
-                var TimesOfDeliveryFail = context.Routes.Where(x => x.parcelID == parcelID && x.details.Contains("thất bại")).Count();
-                // if thisParcel.Status == true -> so it not is failed delivery
-                if ((thisParcel.parcelStatus != true))
-                {
-                    if (TimesOfDeliveryFail == 3)
-                    {
-                        // parcelStatus is check if it deliveryFail too much
-                        thisParcel.parcelStatus = true;
-                        string details = "Đơn hàng bị trả lại";
-                        var newRoute = new Route
-                        {
-                            parcelID = parcelID,
-                            relatedWarehouseID = WarehouseID,
-                            details = details,
-                            time = DateTime.Now,
-                        };
-                        context.Routes.Add(newRoute);
-                        context.SaveChanges();
-                        GetParcelInfo();
-                        return true;
-                    } else
-                    {
-                        return false;
-                    }
+                var thisParcel = context.Parcels.FirstOrDefault(x => x.parcelID == parcelID);
+                var TimesOfDeliveryFail = context.Routes.Count(x => x.parcelID == parcelID && x.details.Contains("thất bại"));
 
-                }
-                else
+                if (thisParcel.parcelStatus == true)
                 {
                     return true;
                 }
+
+                if (TimesOfDeliveryFail != 3)
+                {
+                    return false;
+                }
+
+                thisParcel.parcelStatus = true;
+                string details = "Đơn hàng bị trả lại";
+                var newRoute = new Route
+                {
+                    parcelID = parcelID,
+                    relatedWarehouseID = WarehouseID,
+                    details = details,
+                    time = DateTime.Now,
+                };
+                context.Routes.Add(newRoute);
+                context.SaveChanges();
+                GetParcelInfo();
+                return true;
             }
         }
+
     }
 }
