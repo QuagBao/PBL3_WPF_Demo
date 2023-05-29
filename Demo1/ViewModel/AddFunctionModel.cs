@@ -191,7 +191,7 @@ namespace Demo1.ViewModel
             dictionary.Add("Hà Giang", 1);
             dictionary.Add("Tuyên Quang", 1);
             dictionary.Add("Cao Bằng", 1);
-            dictionary.Add("Bắc Kạn", 1);
+            dictionary.Add("Bắc Cạn", 1);
             dictionary.Add("Phú Thọ", 1);
             dictionary.Add("Thái Nguyên", 1);
             dictionary.Add("Lạng Sơn", 1);
@@ -241,7 +241,7 @@ namespace Demo1.ViewModel
             dictionary.Add("Bình Phước", 6);
             dictionary.Add("Tây Ninh", 6);
             dictionary.Add("Bình Dương", 6);
-            dictionary.Add("Vũng Tàu", 6);
+            dictionary.Add("Bà Rịa - Vũng Tàu", 6);
             dictionary.Add("Hồ Chí Minh", 6);
             dictionary.Add("TP.HCM", 6);
 
